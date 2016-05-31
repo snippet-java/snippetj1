@@ -1,0 +1,9 @@
+---
+applications:
+- path: target/JavaWatsonConceptInsight.war
+  name: java-watson-Concept-Insight
+  host: java-watson-Concept-Insight-${random-word}
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  disk_quota: 1024M

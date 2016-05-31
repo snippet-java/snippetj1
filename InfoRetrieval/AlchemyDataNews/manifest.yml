@@ -1,0 +1,9 @@
+---
+applications:
+- path: target/JavaAlchemyDataNews.war
+  name: java-alchemy-data-news
+  host: java-alchemy-data-news-${random-word}
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  disk_quota: 1024M

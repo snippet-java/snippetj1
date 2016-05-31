@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Loading Nodred Documentation</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="easyui-accordion">
+        <div title="About" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+            <h3 style="color:#0099FF;">About</h3>
+            <p>
+                Personality Insights extracts and analyzes a spectrum of personality attributes to help discover actionable insights about people and entities, and in turn guides end users to highly personalized interactions. The service outputs personality characteristics that are divided into three dimensions: the Big 5, Values, and Needs. While some services are contextually specific depending on the domain model and content, Personality Insights only requires a minimum of 3500+ words of any text.
+
+            </p>
+        </div>
+        <div title="Video and Documentation" data-options="iconCls:'icon-help'" style="padding:10px;">
+            <h3 style="color:#0099FF;">Video</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/t5Z7y5ebhsg" frameborder="0" allowfullscreen></iframe>
+
+
+            <h3 style="color:#0099FF;">Documentation</h3>
+            <p>For documentation visit <a target="_blank" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/">Watson Personality Insights Documentation</a>
+            </p>
+        </div>
+        <div title="Code Walkthrough" data-options="iconCls:'icon-help',collapsed:false" style="padding:10px;">
+            <p>API Key need to be obtained by creating Watson Personality Insights Service at :<a target="_blank" href="https://console.ng.bluemix.net/catalog/services/personality-insights/">Watson Personality Insights Service</a></p>
+            <h3 style="color:#0099FF;">Code Walkthrough</h3>
+            <ol>
+                <li>When you run the code the API Key and password is expected to be set for the Personality Insight API Service to be used.</li>
+                <li>The text to be anlaysed also set in the main method</li>
+                <li>In the process method , the API is called and result is returned </li>
+            </ol>
+
+        </div>
+    </div>
+</body>
+
+</html>

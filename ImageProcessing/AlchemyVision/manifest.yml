@@ -1,0 +1,9 @@
+---
+applications:
+- path: target/JavaAlchemyVision.war
+  name: java-alchemy-vision
+  host: java-alchemy-vision-${random-word}
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  disk_quota: 1024M
