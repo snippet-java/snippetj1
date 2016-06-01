@@ -47,9 +47,9 @@ public class Snippet extends SuperGlue {
 		SpeechToText service = new SpeechToText();
 		service.setUsernameAndPassword(((Parameters) myBean).getUserName(), ((Parameters) myBean).getPassword());
 		//for Bluemix
-//		File audio = new File("public/snippets/java/VoiceProcessing/SpeechToText/src/main/resources/STTInput.wav");
+		File audio = new File("public/snippets/java/VoiceProcessing/SpeechToText/src/main/resources/STTInput.wav");
 		//for local
-		File audio = new File("VoiceProcessing/SpeechToText/src/main/resources/STTInput.wav");
+//		File audio = new File("VoiceProcessing/SpeechToText/src/main/resources/STTInput.wav");
 		
 		SpeechResults transcript = service.recognize(audio);
 		
