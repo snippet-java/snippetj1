@@ -54,7 +54,10 @@ public class Snippet extends SuperGlue {
 		DocumentConversion service = new DocumentConversion(((Parameters) myBean).getVersionDate());
 		service.setUsernameAndPassword(((Parameters) myBean).getUserName(), ((Parameters) myBean).getPassword());
 		System.out.println(System.getProperty("user.dir"));
-		File doc = new File("TextProcessing/DocumentConversion/src/main/resources/BluemixTutorial.htm");
+		//for Bluemix
+		File doc = new File("public/snippets/java/TextProcessing/DocumentConversion/src/main/resources/BluemixTutorial.htm");
+		//for local
+		//File doc = new File("TextProcessing/DocumentConversion/src/main/resources/BluemixTutorial.htm");
 		Answers htmlToAnswers = service.convertDocumentToAnswer(doc);
 		
 		return htmlToAnswers.toString();
