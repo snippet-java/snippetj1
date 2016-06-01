@@ -1,5 +1,5 @@
 # snippetj1
-Snippet j1 for default java code snippet
+Snippet j1 for default java code snippet - from IBM
 
 ## Sample Folder Structure
 * Category
