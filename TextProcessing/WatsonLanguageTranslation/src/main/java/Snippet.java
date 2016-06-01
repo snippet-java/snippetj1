@@ -10,6 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.ibm.watson.developer_cloud.alchemy.v1.AlchemyDataNews;
 import com.ibm.watson.developer_cloud.alchemy.v1.model.DocumentsResult;
 import com.ibm.watson.developer_cloud.language_translation.v2.LanguageTranslation;
@@ -19,10 +21,8 @@ import com.ibm.watson.developer_cloud.language_translation.v2.model.TranslationR
 //You would see a form to provide the input values.
 @WebServlet("/")
 public class Snippet extends SuperGlue {
-	/**
-	 * 
-	 */
-//	private static final long serialVersionUID = 1L;
+	
+	private static final long serialVersionUID = 1L;
 	
 	public class Parameters {
 		String userName;
@@ -52,8 +52,12 @@ public class Snippet extends SuperGlue {
 		params.setFromLanguage("en");
 		//****** Process method contains the key logic ******
 		Object processResult = myclass.process(((Parameters) params));
+		
+		JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(processResult));
+		System.out.println(gson.toJson(json));
 	}
 
 	@Override

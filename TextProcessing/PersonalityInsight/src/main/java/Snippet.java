@@ -4,6 +4,9 @@
 import javax.servlet.annotation.WebServlet;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.ibm.watson.developer_cloud.personality_insights.v2.PersonalityInsights;
 import com.ibm.watson.developer_cloud.personality_insights.v2.model.Profile;
 //After deployment go to the relative URI to test the functionality.
@@ -36,7 +39,12 @@ public class Snippet extends SuperGlue {
 				+ "it with her surf. Right and left, the streets take you waterward.");
 		//****** Process method contains the key logic ******
 		Object processResult = myclass.process(((Parameters) params));
-		System.out.println(new Gson().toJson(processResult));
+		
+		JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		System.out.println(gson.toJson(json));
 	}
 	
 	public class Parameters {
