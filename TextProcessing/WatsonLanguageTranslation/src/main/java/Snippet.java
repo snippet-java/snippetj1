@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.ibm.watson.developer_cloud.alchemy.v1.AlchemyDataNews;
 import com.ibm.watson.developer_cloud.alchemy.v1.model.DocumentsResult;
 import com.ibm.watson.developer_cloud.language_translation.v2.LanguageTranslation;
@@ -51,7 +52,8 @@ public class Snippet extends SuperGlue {
 		params.setFromLanguage("en");
 		//****** Process method contains the key logic ******
 		Object processResult = myclass.process(((Parameters) params));
-		System.out.println(new Gson().toJson(processResult));
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		System.out.println(gson.toJson(processResult));
 	}
 
 	@Override
