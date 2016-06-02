@@ -1,0 +1,9 @@
+---
+applications:
+- path: target/JavaCloudantListAllDoc.war
+  name: java-cloudant-list-all-doc
+  host: java-cloudant-list-all-doc-${random-word}
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  disk_quota: 1024M
