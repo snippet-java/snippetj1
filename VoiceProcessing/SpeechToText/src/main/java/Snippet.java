@@ -12,7 +12,7 @@ import com.ibm.watson.developer_cloud.speech_to_text.v1.SpeechToText;
 import com.ibm.watson.developer_cloud.speech_to_text.v1.model.SpeechResults;
 //After deployment go to the relative URI to test the functionality.
 //You would see a form to provide the input values.
-@WebServlet("/SpeechToTextTest")
+@WebServlet("/")
 public class Snippet extends SuperGlue {
 	
 	private static final long serialVersionUID = 1L;
