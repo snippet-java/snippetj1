@@ -11,7 +11,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.ibm.watson.developer_cloud.document_conversion.v1.DocumentConversion;
 import com.ibm.watson.developer_cloud.document_conversion.v1.model.Answers;
-@WebServlet("/DocumentConversionTest")
+@WebServlet("/")
 //After deployment go to the relative URI to test the functionality.
 //You would see a form to provide the input values.
 public class Snippet extends SuperGlue {
@@ -21,14 +21,14 @@ public class Snippet extends SuperGlue {
 	public static void main(String[] args) throws URISyntaxException {
 		// @param versionDate - version of the API that being called
 		// latest version 2015-12-15. for more info, can refer to
-		// https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/document-conversion/api/v1/?java#convert-document
+		// https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/document-conversion/updates.shtml
 		Snippet myclass = new Snippet();
-		Parameters inputPOJO = myclass.new Parameters();
-		inputPOJO.setVersionDate("2015-12-15");
-		inputPOJO.setUserName("e19a0428-c14c-4f79-b355-b94c3f28a27c");
-		inputPOJO.setPassword("1X2ylaRCsetU");
+		Parameters parameters = myclass.new Parameters();
+		parameters.setVersionDate("2015-12-15");
+		parameters.setUserName("e19a0428-c14c-4f79-b355-b94c3f28a27c");
+		parameters.setPassword("1X2ylaRCsetU");
 		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) inputPOJO));
+		Object processResult = myclass.process(((Parameters) parameters));
 		
 		JsonParser parser = new JsonParser();
         JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
@@ -53,11 +53,10 @@ public class Snippet extends SuperGlue {
 	protected Object process(Object myBean) {		
 		DocumentConversion service = new DocumentConversion(((Parameters) myBean).getVersionDate());
 		service.setUsernameAndPassword(((Parameters) myBean).getUserName(), ((Parameters) myBean).getPassword());
-		System.out.println(System.getProperty("user.dir"));
 		//for Bluemix
-		File doc = new File("public/snippets/java/TextProcessing/DocumentConversion/src/main/resources/BluemixTutorial.htm");
+//		File doc = new File("public/snippets/java/TextProcessing/DocumentConversion/src/main/resources/BluemixTutorial.htm");
 		//for local
-		//File doc = new File("TextProcessing/DocumentConversion/src/main/resources/BluemixTutorial.htm");
+		File doc = new File("TextProcessing/DocumentConversion/src/main/resources/BluemixTutorial.htm");
 		Answers htmlToAnswers = service.convertDocumentToAnswer(doc);
 		
 		return htmlToAnswers.toString();
