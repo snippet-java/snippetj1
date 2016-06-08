@@ -19,33 +19,26 @@ public class Snippet extends SuperGlue {
 	public static void main(String[] args) {
 		Snippet myclass = new Snippet();
 		Parameters params = myclass.new Parameters();
-		params.setApiKey("913f155354acfc4810935b58249e5edefa63f9ba");
-		params.setTextToBeAnalysed("IBM Watson won the Jeopardy television show hosted by Alex Trebek");
 		//****** Process method contains the key logic ******
 		Object processResult = myclass.process(((Parameters) params));
 		
 		JsonParser parser = new JsonParser();
         JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
-		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		System.out.println(gson.toJson(json));
 	}
 	
 	public class Parameters {
-		String apiKey;
-		String textToBeAnalysed;
-		public String getTextToBeAnalysed() { return textToBeAnalysed; }
-		public void setTextToBeAnalysed(String textToBeAnalysed) { this.textToBeAnalysed = textToBeAnalysed; }
-		public String getApiKey() { return apiKey; }
-		public void setApiKey(String apiKey) { this.apiKey = apiKey; }
+		public String apiKey = "913f155354acfc4810935b58249e5edefa63f9ba";
+		public String textToBeAnalysed = "IBM Watson won the Jeopardy television show hosted by Alex Trebek";
 	}
 	
 	@Override
 	protected Object process(Object myBean) {
 		AlchemyLanguage service = new AlchemyLanguage();
-		service.setApiKey(((Parameters) myBean).getApiKey());
+		service.setApiKey(((Parameters) myBean).apiKey);
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put(AlchemyLanguage.TEXT, ((Parameters) myBean).getTextToBeAnalysed());
+		params.put(AlchemyLanguage.TEXT, ((Parameters) myBean).textToBeAnalysed);
 		DocumentSentiment sentiment = service.getSentiment(params);
 		
 		return sentiment.toString();

@@ -1,8 +1,12 @@
 // SpeechToTextTest
 //to recognize the text from a .wav file.
 import java.io.File;
+import java.util.Collection;
+import java.util.Iterator;
 
 import javax.servlet.annotation.WebServlet;
+
+import org.apache.commons.io.FileUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -20,37 +24,26 @@ public class Snippet extends SuperGlue {
 	public static void main(String[] args) {
 		Snippet myclass = new Snippet();
 		Parameters parameter = myclass.new Parameters();
-		parameter.setUserName("90260bbe-07af-47ee-abe3-bb6199e4ed1d");
-		parameter.setPassword("2aIQdfh6KFCx");
 		//****** Process method contains the key logic ******
 		Object processResult = myclass.process(((Parameters) parameter));
 		
 		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
-		
+        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();	
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		System.out.println(gson.toJson(json));
 	}
 	
 	public class Parameters {
-		String userName;
-		String password;
-		public String getUserName() { return userName; }
-		public void setUserName(String userName) { this.userName = userName; }
-		public String getPassword() { return password; }
-		public void setPassword(String password) { this.password = password; }
+		public String userName = "90260bbe-07af-47ee-abe3-bb6199e4ed1d";
+		public String password = "2aIQdfh6KFCx";
 	}
 	
 	
 	@Override
 	protected Object process(Object myBean) {
 		SpeechToText service = new SpeechToText();
-		service.setUsernameAndPassword(((Parameters) myBean).getUserName(), ((Parameters) myBean).getPassword());
-		//for Bluemix
-		File audio = new File("public/snippets/java/VoiceProcessing/SpeechToText/src/main/resources/STTInput.wav");
-		//for local
-//		File audio = new File("VoiceProcessing/SpeechToText/src/main/resources/STTInput.wav");
-		
+		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		File audio = findFile();
 		SpeechResults transcript = service.recognize(audio);
 		
 		return transcript.toString();
@@ -59,5 +52,28 @@ public class Snippet extends SuperGlue {
 	@Override
 	protected Object getParameters() {
 		return new Parameters();
+	}
+	
+	private File findFile() {
+		File root = new File(System.getProperty("user.dir"));
+        String fileName = "STTInput.wav";
+        File sourceFile = null;
+        try {
+            boolean recursive = true;
+
+            Collection files = FileUtils.listFiles(root, new String[] {"wav"}, recursive);
+
+            for (Iterator iterator = files.iterator(); iterator.hasNext();) {
+                File file = (File) iterator.next();
+                if (file.getName().equals(fileName)) {
+                	sourceFile = new File(file.getAbsolutePath());
+                	break;
+                }
+            }
+            	
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sourceFile;
 	}
 }

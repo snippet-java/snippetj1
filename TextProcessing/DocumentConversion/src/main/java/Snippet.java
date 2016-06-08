@@ -2,8 +2,12 @@
 //Service provides an Application Programming Interface (API) that enables developers to transform a document into a new format. The input is a single PDF, Word, or HTML document and the output is an HTML document, a Text document, or Answer units that can be used with other Watson services.
 import java.io.File;
 import java.net.URISyntaxException;
+import java.util.Collection;
+import java.util.Iterator;
 
 import javax.servlet.annotation.WebServlet;
+
+import org.apache.commons.io.FileUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -19,44 +23,29 @@ public class Snippet extends SuperGlue {
 	private static final long serialVersionUID = 1L;
 	
 	public static void main(String[] args) throws URISyntaxException {
-		// @param versionDate - version of the API that being called
-		// latest version 2015-12-15. for more info, can refer to
-		// https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/document-conversion/updates.shtml
+		
 		Snippet myclass = new Snippet();
 		Parameters parameters = myclass.new Parameters();
-		parameters.setVersionDate("2015-12-15");
-		parameters.setUserName("e19a0428-c14c-4f79-b355-b94c3f28a27c");
-		parameters.setPassword("1X2ylaRCsetU");
 		//****** Process method contains the key logic ******
 		Object processResult = myclass.process(((Parameters) parameters));
 		
 		JsonParser parser = new JsonParser();
         JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
-		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		System.out.println(gson.toJson(json));
 	}
 	
 	public class Parameters {
-		String versionDate;
-		String userName;
-		String password;
-		public String getVersionDate() { return versionDate; }
-		public void setVersionDate(String versionDate) { this.versionDate = versionDate; }
-		public String getUserName() { return userName; }
-		public void setUserName(String userName) { this.userName = userName; }
-		public String getPassword() { return password; }
-		public void setPassword(String password) { this.password = password; }
+		public String versionDate = "2015-12-15";
+		public String userName = "e19a0428-c14c-4f79-b355-b94c3f28a27c";
+		public String password = "1X2ylaRCsetU";
 	}
 	
 	@Override
-	protected Object process(Object myBean) {		
-		DocumentConversion service = new DocumentConversion(((Parameters) myBean).getVersionDate());
-		service.setUsernameAndPassword(((Parameters) myBean).getUserName(), ((Parameters) myBean).getPassword());
-		//for Bluemix
-//		File doc = new File("public/snippets/java/TextProcessing/DocumentConversion/src/main/resources/BluemixTutorial.htm");
-		//for local
-		File doc = new File("TextProcessing/DocumentConversion/src/main/resources/BluemixTutorial.htm");
+	public Object process(Object myBean) {		
+		DocumentConversion service = new DocumentConversion(((Parameters) myBean).versionDate);
+		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		File doc = findFile();
 		Answers htmlToAnswers = service.convertDocumentToAnswer(doc);
 		
 		return htmlToAnswers.toString();
@@ -65,5 +54,28 @@ public class Snippet extends SuperGlue {
 	@Override
 	protected Object getParameters() {
 		return new Parameters();
+	}
+	
+	private File findFile() {
+		File root = new File(System.getProperty("user.dir"));
+        String fileName = "BluemixTutorial.htm";
+        File sourceFile = null;
+        try {
+            boolean recursive = true;
+
+            Collection files = FileUtils.listFiles(root, new String[] {"htm"}, recursive);
+
+            for (Iterator iterator = files.iterator(); iterator.hasNext();) {
+                File file = (File) iterator.next();
+                if (file.getName().equals(fileName)) {
+                	sourceFile = new File(file.getAbsolutePath());
+                	break;
+                }
+            }
+            	
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sourceFile;
 	}
 }
