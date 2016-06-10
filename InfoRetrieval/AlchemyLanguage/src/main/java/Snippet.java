@@ -14,20 +14,6 @@ import com.ibm.watson.developer_cloud.alchemy.v1.model.DocumentSentiment;
 @WebServlet("/")
 public class Snippet extends SuperGlue {
 	
-	private static final long serialVersionUID = 1L;
-	
-	public static void main(String[] args) {
-		Snippet myclass = new Snippet();
-		Parameters params = myclass.new Parameters();
-		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) params));
-		
-		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(json));
-	}
-	
 	public class Parameters {
 		public String apiKey = "913f155354acfc4810935b58249e5edefa63f9ba";
 		public String textToBeAnalysed = "IBM Watson won the Jeopardy television show hosted by Alex Trebek";
@@ -44,9 +30,23 @@ public class Snippet extends SuperGlue {
 		return sentiment.toString();
 	}
 	
+	public static void main(String[] args) {
+		Snippet myclass = new Snippet();
+		Parameters params = myclass.new Parameters();
+		//****** Process method contains the key logic ******
+		Object processResult = myclass.process(((Parameters) params));
+		
+		JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		System.out.println(gson.toJson(json));
+	}
+	
 	@Override
 	protected Object getParameters() {
 		return new Parameters();
 	}
+	
+	private static final long serialVersionUID = 1L;
 	
 }

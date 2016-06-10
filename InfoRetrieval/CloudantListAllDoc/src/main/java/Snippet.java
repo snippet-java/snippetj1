@@ -20,20 +20,6 @@ import com.google.gson.JsonParser;
 @WebServlet("/")
 public class Snippet extends SuperGlue {
 	
-	private static final long serialVersionUID = 1L;
-
-	public static void main(String[] args) throws IOException, IllegalArgumentException, IllegalAccessException {
-		Snippet myclass = new Snippet();
-		Parameters params = myclass.new Parameters();
-		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) params));
-		
-		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(json));
-	}
-	
 	public class Parameters {
 		public String username = "313d6562-626e-4edc-855f-528c7bba73e3-bluemix";
 		public String password = "38fdea42f285bd146e7a7d2baa15f91dc486dababd609a1c61e3b2a2452aa55a";
@@ -65,6 +51,20 @@ public class Snippet extends SuperGlue {
 		} 
 		return result;
 	}
+
+	public static void main(String[] args) throws IOException, IllegalArgumentException, IllegalAccessException {
+		Snippet myclass = new Snippet();
+		Parameters params = myclass.new Parameters();
+		//****** Process method contains the key logic ******
+		Object processResult = myclass.process(((Parameters) params));
+		
+		JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		System.out.println(gson.toJson(json));
+	}
+	
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	Object getParameters() {

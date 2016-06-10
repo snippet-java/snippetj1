@@ -15,7 +15,23 @@ import com.ibm.watson.developer_cloud.language_translation.v2.model.TranslationR
 @WebServlet("/")
 public class Snippet extends SuperGlue {
 	
-	private static final long serialVersionUID = 1L;
+	public class Parameters {
+		public String userName = "0b687f94-4b72-44c4-9767-d750725a4a62";
+		public String password = "DM1gWzfXhVPV";
+		public String text = "hello";
+		public String fromLanguage = "en";
+		public String toLanguage = "es";
+	}
+	
+	@Override
+	protected Object process(Object myBean) {
+		LanguageTranslation service = new LanguageTranslation();
+		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		// test with translate language
+		TranslationResult translationResult = service.translate(((Parameters) myBean).text,
+				((Parameters) myBean).fromLanguage, ((Parameters) myBean).toLanguage);
+		return translationResult.toString();
+	}
 	
 	public static void main(String[] args) {
 		Snippet myclass = new Snippet();
@@ -28,26 +44,11 @@ public class Snippet extends SuperGlue {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		System.out.println(gson.toJson(json));
 	}
-	
-	public class Parameters {
-		public String userName = "0b687f94-4b72-44c4-9767-d750725a4a62";
-		public String password = "DM1gWzfXhVPV";
-		public String text = "hello";
-		public String fromLanguage = "en";
-		public String toLanguage = "es";
-	}
 
 	@Override
 	Object getParameters() {
 		return new Parameters();
 	}
-	@Override
-	protected Object process(Object myBean) {
-		LanguageTranslation service = new LanguageTranslation();
-		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
-		// test with translate language
-		TranslationResult translationResult = service.translate(((Parameters) myBean).text,
-				((Parameters) myBean).fromLanguage, ((Parameters) myBean).toLanguage);
-		return translationResult.toString();
-	}
+	
+	private static final long serialVersionUID = 1L;
 }

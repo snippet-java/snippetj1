@@ -20,21 +20,6 @@ import com.ibm.watson.developer_cloud.document_conversion.v1.model.Answers;
 //You would see a form to provide the input values.
 public class Snippet extends SuperGlue {
 	
-	private static final long serialVersionUID = 1L;
-	
-	public static void main(String[] args) throws URISyntaxException {
-		
-		Snippet myclass = new Snippet();
-		Parameters parameters = myclass.new Parameters();
-		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) parameters));
-		
-		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(json));
-	}
-	
 	public class Parameters {
 		public String versionDate = "2015-12-15";
 		public String userName = "e19a0428-c14c-4f79-b355-b94c3f28a27c";
@@ -54,6 +39,19 @@ public class Snippet extends SuperGlue {
 	@Override
 	protected Object getParameters() {
 		return new Parameters();
+	}
+	
+	public static void main(String[] args) throws URISyntaxException {
+		
+		Snippet myclass = new Snippet();
+		Parameters parameters = myclass.new Parameters();
+		//****** Process method contains the key logic ******
+		Object processResult = myclass.process(((Parameters) parameters));
+		
+		JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		System.out.println(gson.toJson(json));
 	}
 	
 	private File findFile() {
@@ -78,4 +76,6 @@ public class Snippet extends SuperGlue {
         }
         return sourceFile;
 	}
+	
+	private static final long serialVersionUID = 1L;
 }

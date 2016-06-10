@@ -19,20 +19,6 @@ import com.ibm.watson.developer_cloud.speech_to_text.v1.model.SpeechResults;
 @WebServlet("/")
 public class Snippet extends SuperGlue {
 	
-	private static final long serialVersionUID = 1L;
-	
-	public static void main(String[] args) {
-		Snippet myclass = new Snippet();
-		Parameters parameter = myclass.new Parameters();
-		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) parameter));
-		
-		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();	
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(json));
-	}
-	
 	public class Parameters {
 		public String userName = "90260bbe-07af-47ee-abe3-bb6199e4ed1d";
 		public String password = "2aIQdfh6KFCx";
@@ -47,6 +33,18 @@ public class Snippet extends SuperGlue {
 		SpeechResults transcript = service.recognize(audio);
 		
 		return transcript.toString();
+	}
+	
+	public static void main(String[] args) {
+		Snippet myclass = new Snippet();
+		Parameters parameter = myclass.new Parameters();
+		//****** Process method contains the key logic ******
+		Object processResult = myclass.process(((Parameters) parameter));
+		
+		JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();	
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		System.out.println(gson.toJson(json));
 	}
 	
 	@Override
@@ -76,4 +74,6 @@ public class Snippet extends SuperGlue {
         }
         return sourceFile;
 	}
+	
+	private static final long serialVersionUID = 1L;
 }
