@@ -8,6 +8,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.ibm.watson.developer_cloud.language_translation.v2.LanguageTranslation;
+import com.ibm.watson.developer_cloud.language_translation.v2.model.Language;
 import com.ibm.watson.developer_cloud.language_translation.v2.model.TranslationResult;
 
 //After deployment go to the relative URI to test the functionality.
@@ -19,8 +20,8 @@ public class Snippet extends SuperGlue {
 		public String userName = "0b687f94-4b72-44c4-9767-d750725a4a62";
 		public String password = "DM1gWzfXhVPV";
 		public String text = "hello";
-		public String fromLanguage = "en";
-		public String toLanguage = "es";
+		public Language fromLanguage = Language.ENGLISH;
+		public Language toLanguage = Language.SPANISH;
 	}
 	
 	@Override
@@ -29,7 +30,7 @@ public class Snippet extends SuperGlue {
 		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
 		// test with translate language
 		TranslationResult translationResult = service.translate(((Parameters) myBean).text,
-				((Parameters) myBean).fromLanguage, ((Parameters) myBean).toLanguage);
+				((Parameters) myBean).fromLanguage, ((Parameters) myBean).toLanguage).execute();
 		return translationResult.toString();
 	}
 	
