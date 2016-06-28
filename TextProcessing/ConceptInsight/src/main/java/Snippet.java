@@ -23,7 +23,7 @@ public class Snippet extends SuperGlue {
 	protected Object process(Object myBean) {
 		ConceptInsights service = new ConceptInsights();
 		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
-		Annotations annotations = service.annotateText(Graph.WIKIPEDIA, ((Parameters) myBean).text);
+		Annotations annotations = service.annotateText(Graph.WIKIPEDIA, ((Parameters) myBean).text).execute();
 
 		return annotations.toString();
 	}

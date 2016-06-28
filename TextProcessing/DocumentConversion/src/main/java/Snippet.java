@@ -31,7 +31,7 @@ public class Snippet extends SuperGlue {
 		DocumentConversion service = new DocumentConversion(((Parameters) myBean).versionDate);
 		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
 		File doc = findFile();
-		Answers htmlToAnswers = service.convertDocumentToAnswer(doc);
+		Answers htmlToAnswers = service.convertDocumentToAnswer(doc).execute();
 		
 		return htmlToAnswers.toString();
 	}

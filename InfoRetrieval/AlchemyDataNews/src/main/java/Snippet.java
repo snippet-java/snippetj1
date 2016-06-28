@@ -38,7 +38,7 @@ public class Snippet extends SuperGlue {
 		params.put(AlchemyDataNews.END, "1441407600");
 		// return how many articles
 		params.put(AlchemyDataNews.COUNT, 7);
-		DocumentsResult result = service.getNewsDocuments(params);
+		DocumentsResult result = service.getNewsDocuments(params).execute();
 		
 		return result;
 		

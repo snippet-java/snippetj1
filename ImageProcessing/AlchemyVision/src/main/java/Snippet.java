@@ -35,7 +35,7 @@ public class Snippet extends SuperGlue {
 		service.setApiKey(((Parameters) myBean).apiKey);
 		Boolean forceShowAll = false;
 		Boolean knowledgeGraph = false;
-		ImageKeywords keywords = service.getImageKeywords(imageUrl, forceShowAll, knowledgeGraph);
+		ImageKeywords keywords = service.getImageKeywords(imageUrl, forceShowAll, knowledgeGraph).execute();
 		
 		return keywords.toString();
 	}

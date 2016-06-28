@@ -25,7 +25,7 @@ public class Snippet extends SuperGlue {
 		service.setApiKey(((Parameters) myBean).apiKey);
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put(AlchemyLanguage.TEXT, ((Parameters) myBean).textToBeAnalysed);
-		DocumentSentiment sentiment = service.getSentiment(params);
+		DocumentSentiment sentiment = service.getSentiment(params).execute();
 		
 		return sentiment.toString();
 	}

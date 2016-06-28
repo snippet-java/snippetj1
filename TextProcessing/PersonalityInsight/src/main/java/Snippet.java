@@ -42,7 +42,7 @@ public class Snippet extends SuperGlue {
 		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
 		// Demo content from Moby Dick by Hermann Melville (Chapter 1)
 		String text = ((Parameters) myBean).text;
-		Profile profile = service.getProfile(text);
+		Profile profile = service.getProfile(text).execute();
 		
 		return profile.toString();
 	}

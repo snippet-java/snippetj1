@@ -30,7 +30,7 @@ public class Snippet extends SuperGlue {
 		SpeechToText service = new SpeechToText();
 		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
 		File audio = findFile();
-		SpeechResults transcript = service.recognize(audio);
+		SpeechResults transcript = service.recognize(audio).execute();
 		
 		return transcript.toString();
 	}
