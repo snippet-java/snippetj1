@@ -1,0 +1,10 @@
+---
+applications:
+- path: target/JavaWatsonConversation.war
+  name: java-watson-Conversation
+  host: java-watson-Conversation-${random-word}
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  disk_quota: 1024M
+  buildpack: liberty-for-java
