@@ -20,15 +20,18 @@ import com.ibm.watson.developer_cloud.speech_to_text.v1.model.SpeechResults;
 public class Snippet extends SuperGlue {
 	
 	public class Parameters {
-		public String userName = "90260bbe-07af-47ee-abe3-bb6199e4ed1d";
-		public String password = "2aIQdfh6KFCx";
+		public String userName = "";
+		public String password = "";
 	}
 	
 	
 	@Override
 	protected Object process(Object myBean) {
 		SpeechToText service = new SpeechToText();
-		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		
+		if(!((Parameters) myBean).userName.isEmpty() && !((Parameters) myBean).password.isEmpty())
+			service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		service.setEndPoint("https://watson-api-explorer.mybluemix.net/speech-to-text/api");
 		File audio = findFile();
 		SpeechResults transcript = service.recognize(audio).execute();
 		

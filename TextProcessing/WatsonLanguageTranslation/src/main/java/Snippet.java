@@ -17,9 +17,9 @@ import com.ibm.watson.developer_cloud.language_translation.v2.model.TranslationR
 public class Snippet extends SuperGlue {
 	
 	public class Parameters {
-		public String userName = "0b687f94-4b72-44c4-9767-d750725a4a62";
-		public String password = "DM1gWzfXhVPV";
-		public String text = "hello";
+		public String userName = "";
+		public String password = "";
+		public String text = "hello my friend";
 		public Language fromLanguage = Language.ENGLISH;
 		public Language toLanguage = Language.SPANISH;
 	}
@@ -27,10 +27,13 @@ public class Snippet extends SuperGlue {
 	@Override
 	protected Object process(Object myBean) {
 		LanguageTranslation service = new LanguageTranslation();
-		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
-		// test with translate language
+		
+		if(!((Parameters) myBean).userName.isEmpty() && !((Parameters) myBean).password.isEmpty())
+			service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		
 		TranslationResult translationResult = service.translate(((Parameters) myBean).text,
 				((Parameters) myBean).fromLanguage, ((Parameters) myBean).toLanguage).execute();
+		
 		return translationResult.toString();
 	}
 	

@@ -14,15 +14,18 @@ import com.ibm.watson.developer_cloud.concept_insights.v2.model.Graph;
 public class Snippet extends SuperGlue {
 	
 	public class Parameters {
-		public String userName = "9ae4556d-5fdd-4a57-9f42-5f32b66c6916";
-		public String password = "ivNCfTqJJCz4";
+		public String userName = "";
+		public String password = "";
 		public String text = "IBM Watson won the Jeopardy television show hosted by Alex Trebek";
 	}
 	
 	@Override
 	protected Object process(Object myBean) {
 		ConceptInsights service = new ConceptInsights();
-		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		
+		if(!((Parameters) myBean).userName.isEmpty() && !((Parameters) myBean).password.isEmpty())
+			service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		
 		Annotations annotations = service.annotateText(Graph.WIKIPEDIA, ((Parameters) myBean).text).execute();
 
 		return annotations.toString();

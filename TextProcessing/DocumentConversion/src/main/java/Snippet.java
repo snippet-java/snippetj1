@@ -22,14 +22,17 @@ public class Snippet extends SuperGlue {
 	
 	public class Parameters {
 		public String versionDate = "2015-12-15";
-		public String userName = "e19a0428-c14c-4f79-b355-b94c3f28a27c";
-		public String password = "1X2ylaRCsetU";
+		public String userName = "";
+		public String password = "";
 	}
 	
 	@Override
 	public Object process(Object myBean) {		
 		DocumentConversion service = new DocumentConversion(((Parameters) myBean).versionDate);
-		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		
+		if(!((Parameters) myBean).userName.isEmpty() && !((Parameters) myBean).password.isEmpty())
+			service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		
 		File doc = findFile();
 		Answers htmlToAnswers = service.convertDocumentToAnswer(doc).execute();
 		

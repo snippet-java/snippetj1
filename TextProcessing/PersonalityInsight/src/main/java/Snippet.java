@@ -16,8 +16,8 @@ import com.ibm.watson.developer_cloud.personality_insights.v2.model.Profile;
 public class Snippet extends SuperGlue {
 	
 	public class Parameters {
-		public String userName = "e99c66c3-7ffd-4001-8bff-d57d218d7461";
-		public String password = "dcb7G7Z3MrWE";
+		public String userName = "";
+		public String password = "";
 		public String text = "Call me Ishmael. Some years ago-never mind how long precisely-having "
 				+ "little or no money in my purse, and nothing particular to interest me on shore, "
 				+ "I thought I would sail about a little and see the watery part of the world. "
@@ -39,7 +39,10 @@ public class Snippet extends SuperGlue {
 	@Override
 	protected Object process(Object myBean) {
 		PersonalityInsights service = new PersonalityInsights();
-		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		
+		if(!((Parameters) myBean).userName.isEmpty() && !((Parameters) myBean).password.isEmpty())
+			service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		
 		// Demo content from Moby Dick by Hermann Melville (Chapter 1)
 		String text = ((Parameters) myBean).text;
 		Profile profile = service.getProfile(text).execute();
