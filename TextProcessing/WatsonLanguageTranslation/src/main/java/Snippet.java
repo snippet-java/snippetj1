@@ -28,8 +28,7 @@ public class Snippet extends SuperGlue {
 	protected Object process(Object myBean) {
 		LanguageTranslation service = new LanguageTranslation();
 		
-		if(!((Parameters) myBean).userName.isEmpty() && !((Parameters) myBean).password.isEmpty())
-			service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
 		
 		TranslationResult translationResult = service.translate(((Parameters) myBean).text,
 				((Parameters) myBean).fromLanguage, ((Parameters) myBean).toLanguage).execute();

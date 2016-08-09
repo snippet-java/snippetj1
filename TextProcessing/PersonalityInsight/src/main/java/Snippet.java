@@ -40,8 +40,7 @@ public class Snippet extends SuperGlue {
 	protected Object process(Object myBean) {
 		PersonalityInsights service = new PersonalityInsights();
 		
-		if(!((Parameters) myBean).userName.isEmpty() && !((Parameters) myBean).password.isEmpty())
-			service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
 		
 		// Demo content from Moby Dick by Hermann Melville (Chapter 1)
 		String text = ((Parameters) myBean).text;

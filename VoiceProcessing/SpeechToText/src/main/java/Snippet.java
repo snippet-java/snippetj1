@@ -29,9 +29,8 @@ public class Snippet extends SuperGlue {
 	protected Object process(Object myBean) {
 		SpeechToText service = new SpeechToText();
 		
-		if(!((Parameters) myBean).userName.isEmpty() && !((Parameters) myBean).password.isEmpty())
-			service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
-		service.setEndPoint("https://watson-api-explorer.mybluemix.net/speech-to-text/api");
+		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		
 		File audio = findFile();
 		SpeechResults transcript = service.recognize(audio).execute();
 		

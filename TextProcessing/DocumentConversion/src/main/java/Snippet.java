@@ -30,8 +30,7 @@ public class Snippet extends SuperGlue {
 	public Object process(Object myBean) {		
 		DocumentConversion service = new DocumentConversion(((Parameters) myBean).versionDate);
 		
-		if(!((Parameters) myBean).userName.isEmpty() && !((Parameters) myBean).password.isEmpty())
-			service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
 		
 		File doc = findFile();
 		Answers htmlToAnswers = service.convertDocumentToAnswer(doc).execute();
