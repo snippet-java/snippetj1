@@ -15,7 +15,7 @@ import com.ibm.watson.developer_cloud.alchemy.v1.model.DocumentSentiment;
 public class Snippet extends SuperGlue {
 	
 	public class Parameters {
-		public String apiKey = "913f155354acfc4810935b58249e5edefa63f9ba";
+		public String apiKey = "";
 		public String textToBeAnalysed = "IBM Watson won the Jeopardy television show hosted by Alex Trebek";
 	}
 	

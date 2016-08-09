@@ -18,12 +18,13 @@ import com.ibm.watson.developer_cloud.alchemy.v1.model.ImageKeywords;
 public class Snippet extends SuperGlue {
 	
 	public class Parameters {
-		public String apiKey = "913f155354acfc4810935b58249e5edefa63f9ba";
+		public String apiKey = "";
 	}
 	
 	@Override
 	protected Object process(Object myBean) {
 		AlchemyVision service = new AlchemyVision();
+		service.setApiKey(((Parameters)myBean).apiKey);
 		URL imageUrl = null;
 		try {
 			imageUrl = new URI("http://images.indianexpress.com/2015/02/david_beckham-759.jpg").toURL();
