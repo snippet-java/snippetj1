@@ -14,43 +14,47 @@ import com.ibm.watson.developer_cloud.language_translation.v2.model.TranslationR
 //After deployment go to the relative URI to test the functionality.
 //You would see a form to provide the input values.
 @WebServlet("/")
-public class Snippet extends SuperGlue {
+public class Snippet extends SuperGluev2 {
 	
-	public class Parameters {
-		public String userName = "";
-		public String password = "";
-		public String text = "hello my friend";
-		public Language fromLanguage = Language.ENGLISH;
-		public Language toLanguage = Language.SPANISH;
-	}
+	public JsonObject parameters = new JsonObject();
 	
 	@Override
-	protected Object process(Object myBean) {
+	protected JsonObject process(String jsonString) {
+		JsonParser parser = new JsonParser(); 
+		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();  
+		
 		LanguageTranslation service = new LanguageTranslation();
 		
-		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		service.setUsernameAndPassword(myBean.get("username").getAsString(), myBean.get("password").getAsString());
 		
-		TranslationResult translationResult = service.translate(((Parameters) myBean).text,
-				((Parameters) myBean).fromLanguage, ((Parameters) myBean).toLanguage).execute();
+		//fromlanguage and tolanguage arg need to be upper case
+		TranslationResult translationResult = service.translate(myBean.get("text").getAsString(),
+				Language.valueOf(myBean.get("fromLanguage").getAsString().toUpperCase()), Language.valueOf(myBean.get("toLanguage").getAsString().toUpperCase())).execute();
 		
-		return translationResult.toString();
+        JsonObject json = parser.parse(translationResult.toString()).getAsJsonObject();
+		
+		return json;
 	}
 	
 	public static void main(String[] args) {
 		Snippet myclass = new Snippet();
-		Parameters params = myclass.new Parameters();
-		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) params));
+		String input = "{\"username\":\"\",\"password\":\"\",\"text\":\"hello my friend\",\"fromLanguage\":\"ENGLISH\",\"toLanguage\":\"SPANISH\"}";
 		
-		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
+		//****** Process method contains the key logic ******
+		JsonObject output = myclass.process(input);
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(json));
+		System.out.println(gson.toJson(output));
 	}
 
 	@Override
-	Object getParameters() {
-		return new Parameters();
+	JsonObject getParameters() {
+		parameters.addProperty("username", "");
+		parameters.addProperty("password", "");
+		parameters.addProperty("text", "");
+		parameters.addProperty("fromLanguage", "");
+		parameters.addProperty("toLanguage", "");
+		return parameters;
 	}
 	
 	private static final long serialVersionUID = 1L;
