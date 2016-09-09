@@ -16,7 +16,7 @@ import com.ibm.watson.developer_cloud.language_translation.v2.model.TranslationR
 @WebServlet("/")
 public class Snippet extends SuperGluev2 {
 	
-	public JsonObject parameters = new JsonObject();
+	public String parameters = "{\"username\":\"\",\"password\":\"\",\"text\":\"hello my friend\",\"fromLanguage\":\"ENGLISH\",\"toLanguage\":\"SPANISH\"}";
 	
 	@Override
 	protected JsonObject process(String jsonString) {
@@ -38,7 +38,7 @@ public class Snippet extends SuperGluev2 {
 	
 	public static void main(String[] args) {
 		Snippet myclass = new Snippet();
-		String input = "{\"username\":\"\",\"password\":\"\",\"text\":\"hello my friend\",\"fromLanguage\":\"ENGLISH\",\"toLanguage\":\"SPANISH\"}";
+		String input = myclass.parameters;
 		
 		//****** Process method contains the key logic ******
 		JsonObject output = myclass.process(input);
@@ -49,12 +49,7 @@ public class Snippet extends SuperGluev2 {
 
 	@Override
 	JsonObject getParameters() {
-		parameters.addProperty("username", "");
-		parameters.addProperty("password", "");
-		parameters.addProperty("text", "");
-		parameters.addProperty("fromLanguage", "");
-		parameters.addProperty("toLanguage", "");
-		return parameters;
+		return new JsonParser().parse(parameters).getAsJsonObject();
 	}
 	
 	private static final long serialVersionUID = 1L;
