@@ -9,7 +9,7 @@
         <relativePath></relativePath>
     </parent>
 
-    <artifactId>JavaWatsonPersonalityInsight</artifactId>
+    <artifactId>JavaTradeoffAnalytics</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -31,6 +31,7 @@
 			<url>file://${project.basedir}/libs</url>
 		</repository>
 	</repositories>
+
 
     <dependencyManagement>
         <dependencies>
@@ -78,7 +79,7 @@
 	      <version>0.1.0</version>
 	    </dependency>
 	    <!-- End of dependency tracker -->
-        
+      
     </dependencies>
        
 
@@ -90,7 +91,7 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <configuration>
                         <failOnMissingWebXml>false</failOnMissingWebXml>
-                        <warName>JavaWatsonPersonalityInsight</warName>
+                        <warName>JavaTradeoffAnalytics</warName>
                     </configuration>
                 </plugin>
                 <plugin>

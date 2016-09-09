@@ -38,13 +38,12 @@ public class Snippet extends SuperGluev2 {
 	
 	public static void main(String[] args) {
 		Snippet myclass = new Snippet();
-		String input = myclass.parameters;
 		
 		//****** Process method contains the key logic ******
-		JsonObject output = myclass.process(input);
+		JsonObject processResult = myclass.process(myclass.parameters);
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(output));
+		System.out.println(gson.toJson(processResult));
 	}
 
 	@Override

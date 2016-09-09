@@ -16,54 +16,54 @@ import com.ibm.watson.developer_cloud.visual_recognition.v3.model.DetectedFaces;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.model.VisualRecognitionOptions;
 
 @WebServlet("/")
-public class Snippet extends SuperGlue {
+public class Snippet extends SuperGluev2 {
 
-	public class Parameters {
-		public String apiKey = "";
-		public String url = "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/first-family/44_barack_obama%5B1%5D.jpg";
-	}
+	public String parameters = "{\"apiKey\":\"\",\"url\":\"https://www.whitehouse.gov/sites/whitehouse.gov/files/images/first-family/44_barack_obama%5B1%5D.jpg\"}";
 	
 	@Override
-	public Object process(Object myBean) {	
-		 VisualRecognition service = new VisualRecognition(VisualRecognition.VERSION_DATE_2016_05_19);
-	    service.setApiKey(((Parameters) myBean).apiKey);    
+	protected JsonObject process(String jsonString) {
+		JsonParser parser = new JsonParser(); 
+		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();  
+		
+		VisualRecognition service = new VisualRecognition(VisualRecognition.VERSION_DATE_2016_05_19);
+	    service.setApiKey(myBean.get("apiKey").getAsString());    
+	    
 	    File obama;    
 	    URL url = null;
 		try {
-			url = new URL(((Parameters) myBean).url);
+			url = new URL(myBean.get("url").getAsString());
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	    obama = new File("test.jpg");     
 	    try {
 			FileUtils.copyURLToFile(url, obama);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}     
 	    VisualRecognitionOptions voptoins = new VisualRecognitionOptions.Builder().images(obama).build();
 		service.detectFaces(voptoins);
 		DetectedFaces result = service.detectFaces(voptoins).execute();
+System.out.println(result.toString());
+        JsonObject json = parser.parse(result.toString()).getAsJsonObject();
 		
-		return result;
-	}
-	
-	@Override
-	protected Object getParameters() {
-		return new Parameters();
+		return json;
 	}
 	
 	public static void main(String[] args) {
 		Snippet myclass = new Snippet();
-		Parameters parameters = myclass.new Parameters();
-		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) parameters));
 		
-		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
+		//****** Process method contains the key logic ******
+		JsonObject processResult = myclass.process(myclass.parameters);
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(json));
-    }
+		System.out.println(gson.toJson(processResult));
+	}
 
+	@Override
+	JsonObject getParameters() {
+		return new JsonParser().parse(parameters).getAsJsonObject();
+	}
+	
+	private static final long serialVersionUID = 1L;
 }

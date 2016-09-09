@@ -63,7 +63,7 @@
         <dependency>
         	<groupId>com.ibm.sample</groupId>
         	<artifactId>super-glue</artifactId>
-        	<version>1.0.0</version>
+        	<version>1.0.1</version>
         </dependency>
         
 	    <!-- Dependency Tracker. Remove the next two dependencies to disable 

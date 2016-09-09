@@ -12,39 +12,40 @@ import com.ibm.watson.developer_cloud.alchemy.v1.model.DocumentSentiment;
 //After deployment go to the relative URI to test the functionality.
 //You would see a form to provide the input values.
 @WebServlet("/")
-public class Snippet extends SuperGlue {
+public class Snippet extends SuperGluev2 {
 	
-	public class Parameters {
-		public String apiKey = "";
-		public String textToBeAnalysed = "IBM Watson won the Jeopardy television show hosted by Alex Trebek";
-	}
+	public String parameters = "{\"apiKey\":\"\", \"text\":\"IBM Watson won the Jeopardy television show hosted by Alex Trebek\"}";
 	
 	@Override
-	protected Object process(Object myBean) {
-		AlchemyLanguage service = new AlchemyLanguage();
-		service.setApiKey(((Parameters) myBean).apiKey);
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put(AlchemyLanguage.TEXT, ((Parameters) myBean).textToBeAnalysed);
-		DocumentSentiment sentiment = service.getSentiment(params).execute();
+	protected JsonObject process(String jsonString) {
+		JsonParser parser = new JsonParser(); 
+		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();
 		
-		return sentiment.toString();
+		AlchemyLanguage service = new AlchemyLanguage();
+		service.setApiKey(myBean.get("apiKey").getAsString());
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put(AlchemyLanguage.TEXT, (myBean.get("text").getAsString()));
+		DocumentSentiment sentiment = service.getSentiment(params).execute();
+
+        JsonObject json = parser.parse(sentiment.toString()).getAsJsonObject();
+		
+		return json;
 	}
 	
 	public static void main(String[] args) {
 		Snippet myclass = new Snippet();
-		Parameters params = myclass.new Parameters();
-		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) params));
 		
-		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
+		//****** Process method contains the key logic ******
+		JsonObject processResult = myclass.process(myclass.parameters);
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(json));
+		System.out.println(gson.toJson(processResult));
 	}
-	
+
 	@Override
-	protected Object getParameters() {
-		return new Parameters();
+	JsonObject getParameters() {
+		return new JsonParser().parse(parameters).getAsJsonObject();
 	}
 	
 	private static final long serialVersionUID = 1L;

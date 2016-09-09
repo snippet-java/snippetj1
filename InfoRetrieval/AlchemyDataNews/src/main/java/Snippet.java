@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,16 +15,18 @@ import com.ibm.watson.developer_cloud.alchemy.v1.model.DocumentsResult;
 //After deployment go to the relative URI to test the functionality.
 //You would see a form to provide the input values.
 @WebServlet("/")
-public class Snippet extends SuperGlue {
-	
-	public class Parameters {
-		public String apikey = "";
-	}
+public class Snippet extends SuperGluev2 {
+
+	public String parameters = "{\"apiKey\":\"\"}";
 	
 	@Override
-	public Object process(Object myBean) {
+	protected JsonObject process(String jsonString) {
+		JsonParser parser = new JsonParser(); 
+		JsonObject myBean = parser.parse(jsonString).getAsJsonObject(); 
+		
 		AlchemyDataNews service = new AlchemyDataNews();
-		service.setApiKey(((Parameters)myBean).apikey);
+		service.setApiKey(myBean.get("apiKey").getAsString());
+		
 		Map<String, Object> params = new HashMap<String, Object>();
 		// specify the categories to be included. In this case, title, url,author... are included
 		String[] fields = new String[] { "enriched.url.title", "enriched.url.url", "enriched.url.author",
@@ -39,26 +40,26 @@ public class Snippet extends SuperGlue {
 		// return how many articles
 		params.put(AlchemyDataNews.COUNT, 7);
 		DocumentsResult result = service.getNewsDocuments(params).execute();
+
+        JsonObject json = parser.parse(result.toString()).getAsJsonObject();
 		
-		return result;
+		return json;
 		
 	}
-
-	public static void main(String[] args) throws IOException, IllegalArgumentException, IllegalAccessException {
+	
+	public static void main(String[] args) {
 		Snippet myclass = new Snippet();
-		Parameters params = myclass.new Parameters();
-		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) params));
 		
-		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
+		//****** Process method contains the key logic ******
+		JsonObject processResult = myclass.process(myclass.parameters);
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(json));
+		System.out.println(gson.toJson(processResult));
 	}
 
 	@Override
-	Object getParameters() {
-		return new Parameters();
+	JsonObject getParameters() {
+		return new JsonParser().parse(parameters).getAsJsonObject();
 	}
 	
 	private static final long serialVersionUID = 1L;

@@ -15,16 +15,18 @@ import com.ibm.watson.developer_cloud.alchemy.v1.model.ImageKeywords;
 //After deployment go to the relative URI to test the functionality.
 //You would see a form to provide the input values.
 @WebServlet("/")
-public class Snippet extends SuperGlue {
+public class Snippet extends SuperGluev2 {
 	
-	public class Parameters {
-		public String apiKey = "";
-	}
+	public String parameters = "{\"apiKey\":\"\"}";
 	
 	@Override
-	protected Object process(Object myBean) {
+	protected JsonObject process(String jsonString) {
+		JsonParser parser = new JsonParser(); 
+		JsonObject myBean = parser.parse(jsonString).getAsJsonObject(); 
+		
 		AlchemyVision service = new AlchemyVision();
-		service.setApiKey(((Parameters)myBean).apiKey);
+		service.setApiKey(myBean.get("apiKey").getAsString());
+		
 		URL imageUrl = null;
 		try {
 			imageUrl = new URI("http://images.indianexpress.com/2015/02/david_beckham-759.jpg").toURL();
@@ -33,30 +35,29 @@ public class Snippet extends SuperGlue {
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		}
-		service.setApiKey(((Parameters) myBean).apiKey);
+		
 		Boolean forceShowAll = false;
 		Boolean knowledgeGraph = false;
 		ImageKeywords keywords = service.getImageKeywords(imageUrl, forceShowAll, knowledgeGraph).execute();
+
+        JsonObject json = parser.parse(keywords.toString()).getAsJsonObject();
 		
-		return keywords.toString();
+		return json;
 	}
 	
-	public static void main(String[] args)
-			throws MalformedURLException, URISyntaxException, IllegalArgumentException, IllegalAccessException {
+	public static void main(String[] args) {
 		Snippet myclass = new Snippet();
-		Parameters params = myclass.new Parameters();
-		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) params));
 		
-		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
+		//****** Process method contains the key logic ******
+		JsonObject processResult = myclass.process(myclass.parameters);
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(json));
+		System.out.println(gson.toJson(processResult));
 	}
 
 	@Override
-	protected Object getParameters() {
-		return new Parameters();
+	JsonObject getParameters() {
+		return new JsonParser().parse(parameters).getAsJsonObject();
 	}
 	
 	private static final long serialVersionUID = 1L;

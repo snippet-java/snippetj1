@@ -18,42 +18,40 @@ import com.ibm.watson.developer_cloud.document_conversion.v1.model.Answers;
 @WebServlet("/")
 //After deployment go to the relative URI to test the functionality.
 //You would see a form to provide the input values.
-public class Snippet extends SuperGlue {
+public class Snippet extends SuperGluev2 {
 	
-	public class Parameters {
-		public String versionDate = "2015-12-15";
-		public String userName = "";
-		public String password = "";
-	}
+	public String parameters = "{\"username\":\"\",\"password\":\"\",\"versionDate\":\"2015-12-15\"}";
 	
 	@Override
-	public Object process(Object myBean) {		
-		DocumentConversion service = new DocumentConversion(((Parameters) myBean).versionDate);
+	public JsonObject process(String jsonString) {	
+		JsonParser parser = new JsonParser(); 
+		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();  
 		
-		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		DocumentConversion service = new DocumentConversion(myBean.get("versionDate").getAsString());
+		
+		service.setUsernameAndPassword(myBean.get("username").getAsString(), myBean.get("password").getAsString());
 		
 		File doc = findFile();
 		Answers htmlToAnswers = service.convertDocumentToAnswer(doc).execute();
 		
-		return htmlToAnswers.toString();
-	}
-	
-	@Override
-	protected Object getParameters() {
-		return new Parameters();
+		JsonObject json = parser.parse(htmlToAnswers.toString()).getAsJsonObject();
+		
+		return json;
 	}
 	
 	public static void main(String[] args) throws URISyntaxException {
 		
 		Snippet myclass = new Snippet();
-		Parameters parameters = myclass.new Parameters();
 		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) parameters));
+		JsonObject processResult = myclass.process(myclass.parameters);
 		
-		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(json));
+		System.out.println(gson.toJson(processResult));
+	}
+
+	@Override
+	JsonObject getParameters() {
+		return new JsonParser().parse(parameters).getAsJsonObject();
 	}
 	
 	private File findFile() {

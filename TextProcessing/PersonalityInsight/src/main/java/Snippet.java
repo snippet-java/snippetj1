@@ -13,12 +13,10 @@ import com.ibm.watson.developer_cloud.personality_insights.v2.model.Profile;
 //After deployment go to the relative URI to test the functionality.
 //You would see a form to provide the input values.
 @WebServlet("/")
-public class Snippet extends SuperGlue {
+public class Snippet extends SuperGluev2 {
 	
-	public class Parameters {
-		public String userName = "";
-		public String password = "";
-		public String text = "Call me Ishmael. Some years ago-never mind how long precisely-having "
+	public String parameters = "{\"username\":\"\",\"password\":\"\","
+			+ "\"text\":\"Call me Ishmael. Some years ago-never mind how long precisely-having "
 				+ "little or no money in my purse, and nothing particular to interest me on shore, "
 				+ "I thought I would sail about a little and see the watery part of the world. "
 				+ "It is a way I have of driving off the spleen and regulating the circulation. "
@@ -33,37 +31,38 @@ public class Snippet extends SuperGlue {
 				+ "If they but knew it, almost all men in their degree, some time or other, cherish "
 				+ "very nearly the same feelings towards the ocean with me. There now is your insular "
 				+ "city of the Manhattoes, belted round by wharves as Indian isles by coral reefs-commerce surrounds "
-				+ "it with her surf. Right and left, the streets take you waterward.";
-	}
+				+ "it with her surf. Right and left, the streets take you waterward.\"}";
 	
 	@Override
-	protected Object process(Object myBean) {
+	protected JsonObject process(String jsonString) {
+		JsonParser parser = new JsonParser(); 
+		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();  
+		
 		PersonalityInsights service = new PersonalityInsights();
 		
-		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		service.setUsernameAndPassword(myBean.get("username").getAsString(), myBean.get("password").getAsString());
 		
 		// Demo content from Moby Dick by Hermann Melville (Chapter 1)
-		String text = ((Parameters) myBean).text;
+		String text = myBean.get("text").getAsString();
 		Profile profile = service.getProfile(text).execute();
+        JsonObject json = parser.parse(profile.toString()).getAsJsonObject();
 		
-		return profile.toString();
+		return json;
 	}
 	
 	public static void main(String[] args) {
 		Snippet myclass = new Snippet();
-		Parameters params = myclass.new Parameters();
-		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) params));
 		
-		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();
+		//****** Process method contains the key logic ******
+		JsonObject processResult = myclass.process(myclass.parameters);
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(json));
+		System.out.println(gson.toJson(processResult));
 	}
 	
 	@Override
-	protected Object getParameters() {
-		return new Parameters();
+	JsonObject getParameters() {
+		return new JsonParser().parse(parameters).getAsJsonObject();
 	}
 	
 	private static final long serialVersionUID = 1L;

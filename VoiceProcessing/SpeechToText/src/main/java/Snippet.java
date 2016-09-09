@@ -17,41 +17,45 @@ import com.ibm.watson.developer_cloud.speech_to_text.v1.model.SpeechResults;
 //After deployment go to the relative URI to test the functionality.
 //You would see a form to provide the input values.
 @WebServlet("/")
-public class Snippet extends SuperGlue {
+public class Snippet extends SuperGluev2 {
 	
 	public class Parameters {
 		public String userName = "";
 		public String password = "";
 	}
 	
+	public String parameters = "{\"username\":\"\",\"password\":\"\"}";
 	
 	@Override
-	protected Object process(Object myBean) {
+	protected JsonObject process(String jsonString) {
+		JsonParser parser = new JsonParser(); 
+		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();  
+		
 		SpeechToText service = new SpeechToText();
 		
-		service.setUsernameAndPassword(((Parameters) myBean).userName, ((Parameters) myBean).password);
+		service.setUsernameAndPassword(myBean.get("username").getAsString(), myBean.get("password").getAsString());
 		
 		File audio = findFile();
 		SpeechResults transcript = service.recognize(audio).execute();
+
+        JsonObject json = parser.parse(transcript.toString()).getAsJsonObject();
 		
-		return transcript.toString();
+		return json;
 	}
 	
 	public static void main(String[] args) {
 		Snippet myclass = new Snippet();
-		Parameters parameter = myclass.new Parameters();
-		//****** Process method contains the key logic ******
-		Object processResult = myclass.process(((Parameters) parameter));
 		
-		JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(processResult.toString()).getAsJsonObject();	
+		//****** Process method contains the key logic ******
+		JsonObject processResult = myclass.process(myclass.parameters);
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		System.out.println(gson.toJson(json));
+		System.out.println(gson.toJson(processResult));
 	}
-	
+
 	@Override
-	protected Object getParameters() {
-		return new Parameters();
+	JsonObject getParameters() {
+		return new JsonParser().parse(parameters).getAsJsonObject();
 	}
 	
 	private File findFile() {
