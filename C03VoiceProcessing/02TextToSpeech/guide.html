@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Text to Speech Documentation</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="easyui-accordion">
+        <div title="About" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+            <h3 style="color:#0099FF;">About</h3>
+            <img src="https://bluecloudnews.com/wp-content/uploads/2016/09/Text-to-speech2.jpg" alt="" width="808" height="216" class="alignnone size-full wp-image-3329" />
+			<strong>How it Works</strong>
+			Watson Text to Speech provides a REST API to synthesize speech audio from an input of plain text. Multiple voices, both male and female, are available across Brazilian Portuguese, English, French, German, Italian, Japanese, and Spanish. Once synthesized in real-time, the audio is streamed back to the client with minimal delay. The Text to Speech service now enables developers to control the pronunciation of specific words
+			<strong>Intended use</strong>
+			Anywhere there's a need to communicate using the spoken word, particularly assistance tools for the vision-impaired, reading-based education tools, or mobile applications.
+
+			<strong>Your Input</strong>
+			<ul>
+			  <li>Brazilian Portuguese plain text</li>
+			  <li>English plain text</li>
+			  <li>French plain text</li>
+			  <li>German plain text</li>
+			  <li>Italian plain text</li>
+			  <li>Japanese plain text</li>
+			  <li>Spanish plain text</li>
+			</ul>
+			<strong>Service Output</strong>
+			<ul>
+			  <li>Brazilian Portuguese speech (1 female voice)</li>
+			  <li>US English speech (choose between 3 voices: 2 female, 1 male)</li>
+			  <li>UK English speech (1 female voice)</li>
+			  <li>French speech (1 female voice)</li>
+			  <li>German speech (choose between 2 voices: 1 female, 1 male)</li>
+			  <li>Japanese speech (1 female voice)</li>
+			  <li>Italian speech (1 female voice)</li>
+			  <li>Castilian Spanish speech (choose between 2 voices: 1 female, 1 male)</li>
+			  <li>North American Spanish speech (1 female voice)</li>
+			</ul>
+        </div>
+        <div title="Code Walkthrough" data-options="iconCls:'icon-help',collapsed:false" style="padding:10px;">
+            <p>Username and password need to be obtained by creating Text To Speech Service at :<a target="_blank" href="https://console.ng.bluemix.net/catalog/services/text-to-speech/">Text To Speech Service</a></p>
+            <h3 style="color:#0099FF;">Code Walkthrough</h3>
+            <ol>
+                <li>When you run the code the user name and password is expected to be set for the Text to Speech API Service to be used.</li>
+                <li>It lists out the available voices available at current Watson database</li>
+            </ol>
+        </div>
+        <div title="Video and Documentation" data-options="iconCls:'icon-help'" style="padding:10px;">
+            <h3 style="color:#0099FF;">Video</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/gj9dTyT9YDs" frameborder="0" allowfullscreen></iframe>
+
+            <h3 style="color:#0099FF;">Documentation</h3>
+            <p>For documentation visit <a target="_blank" href="https://www.ibm.com/watson/developercloud/text-to-speech.html">Text To Speech Documentation</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

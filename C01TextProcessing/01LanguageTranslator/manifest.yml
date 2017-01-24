@@ -1,0 +1,10 @@
+---
+applications:
+- path: target/JavaWatsonLangTranslator.war
+  name: java-watson-language-translator
+  host: java-watson-language-translator-${random-word}
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  disk_quota: 1024M
+  buildpack: liberty-for-java

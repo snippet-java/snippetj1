@@ -1,0 +1,10 @@
+---
+applications:
+- path: target/JavaNLClassifier.war
+  name: java-natural-language-classifier
+  host: java-natural-language-classifier-${random-word}
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  disk_quota: 1024M
+  buildpack: liberty-for-java

@@ -1,0 +1,10 @@
+---
+applications:
+- path: target/JavaCloudantListSingleDoc.war
+  name: java-cloudant-list-single-doc
+  host: java-cloudant-list-single-doc-${random-word}
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  disk_quota: 1024M
+  buildpack: liberty-for-java

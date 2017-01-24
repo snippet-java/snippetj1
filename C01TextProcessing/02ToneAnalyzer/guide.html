@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tone Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="easyui-accordion">
+        <div title="About" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+            <h3 style="color:#0099FF;">About</h3>
+            <img src="https://bluecloudnews.com/wp-content/uploads/2016/09/tone-analyzer2.jpg" alt="" width="835" height="199" class="alignnone size-full wp-image-3327" />
+			<strong>How it Works</strong>
+			Wonder how your message might be perceived by the end user? Perhaps a bit too angry in your emails? Tone Analyzer can help. The IBM Watson™ Tone Analyzer Service uses linguistic analysis to detect three types of tones from text: emotion, social tendencies, and language style. Emotions identified include things like anger, fear, joy, sadness, and disgust. Identified social tendencies include things from the Big Five personality traits used by some psychologists. These include openness, conscientiousness, extroversion, agreeableness, and emotional range. Identified language styles include confident, analytical, and tentative.
+			<strong>Intended use</strong>
+			Common uses for the Tone Analyzer service include:
+			<ul>
+			  <li>Personal and business communications - Anyone could use the Tone Analyzer service to get feedback about their communications, which could improve the effectiveness of the messages and how they are received.</li>
+			  <li>Message resonance - optimize the tones in your communication to increase the impact on your audience</li>
+			  <li>Digital Virtual Agent for customer care - If a human client is interacting with an automated digital agent, and the client is agitated or angry, it is likely reflected in the choice of words they use to explain their problem. An automated agent could use the Tone Analyzer Service to detect those tones, and be programmed to respond appropriately to them</li>
+			  <li>Self-branding - Bloggers and journalists could use the Tone Analyzer Service to get feedback on their tone and fine-tune their writing to reflect a specific personality or style</li>
+			  <li>Market research - Financial advisors and investors could use the Tone Analyzer service to look at the tones reflected in announcements and reports from the companies that they are researching and investing in</li>
+			</ul>
+			<strong>Your Input</strong>
+			<ul>
+			  <li>Any text</li>
+			</ul>
+			<strong>Service Output</strong>
+			<ul>
+			  <li>JSON that provides a hierarchical representation of the analysis of the terms in the input message</li>
+			</ul>
+        </div>
+        <div title="Code Walkthrough" data-options="iconCls:'icon-help',collapsed:false" style="padding:10px;">
+            <p>Credentials can be obtained by creating Tone Analyzer Service at :<a target="_blank" href="https://console.ng.bluemix.net/catalog/services/tone-analyzer/">Tone Analyzer Service</a></p>
+            <h3 style="color:#0099FF;">Code Walkthrough</h3>
+            <ol>
+              	<li>When you run the code the username and password is expected to be set for the Tone Analyzer Service to be used.</li>
+              	<li> Other Params: text - text to be analyzed</li>
+            </ol>
+        </div>
+        <div title="Video and Documentation" data-options="iconCls:'icon-help'" style="padding:10px;">
+            <h3 style="color:#0099FF;">Video</h3>
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/wUb--6FPBik" frameborder="0" allowfullscreen></iframe>
+
+            <h3 style="color:#0099FF;">Documentation</h3>
+            <p>For documentation visit <a target="_blank" href="http://www.ibm.com/watson/developercloud/doc/tone-analyzer/">Tone Analyzer Documentation</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

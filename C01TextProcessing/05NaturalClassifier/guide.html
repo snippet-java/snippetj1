@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Natural Language Classifier</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="easyui-accordion">
+        <div title="About" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+            <h3 style="color:#0099FF;">About</h3>
+            <img src="https://bluecloudnews.com/wp-content/uploads/2017/01/natural-lang-class.jpg" alt="" width="982" height="232" class="alignnone size-full wp-image-3185" />
+			<strong>How it Works</strong>
+			The Natural Language Classifier service understands the intent behind text and returns a corresponding classification, complete with a confidence score. For example “What is the weather like today? or “Is it hot out?” or “Is it going to be nice today?” are all ways of asking about “temperature”. Use NLC to answer questions in a contact center, create chatbots, categorize volumes of written content and more.
+			<strong>Intended use</strong>
+			The Natural Language Classifier works best with short text (1000 characters or less) and can be trained to function in any domain or application. Use Natural Language Classifier to perform tasks such as: 
+			<ul>
+				<li>Classify SMS texts as personal, work, or promotional</li>
+			    <li>Classify tweets into a set of classes, such as events, news, or opinions</li>
+			    <li>Tackle common questions from your users that are typically handled by a live agent</li>
+			    <li>Trigger actions in an application, such as start another application, respond with an answer, or begin a dialog</li>
+			</ul>
+			<strong>Your Input</strong>
+			<ul>
+			  <li>Text to a pre-trained model</li>
+			</ul>
+			<strong>Service Output</strong>
+			<ul>
+			  <li>Classes ordered by confidence</li>
+			</ul>
+        </div>
+        <div title="Code Walkthrough" data-options="iconCls:'icon-help',collapsed:false" style="padding:10px;">
+            <p>Username and Password need to be obtained by creating Natural Language Classifier at :<a target="_blank" href="https://console.ng.bluemix.net/catalog/services/natural-language-classifier/">Natural Language Classifier Service</a></p>
+            <ol>
+            	<li>Train sample of weather and sport in classifier with ID ff18c7x157-nlc-2810 in this case</li>
+            	<li>In this sample, we are trying to find out the category when we ask "Is it sunny?"</li>
+            	<li>Other question "I like basket ball" and "the weather is hot", and find out if they has been categorized correctly</li> 
+            </ol>
+        </div>
+        <div title="Video and Documentation" data-options="iconCls:'icon-help'" style="padding:10px;">
+            <h3 style="color:#0099FF;">Video</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PI55a1jFrMY" frameborder="0" allowfullscreen></iframe>
+
+            <h3 style="color:#0099FF;">Documentation</h3>
+            <p>For documentation visit <a target="_blank" href="https://www.ibm.com/watson/developercloud/nl-classifier.html">Natural Language Classifier Documentation</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

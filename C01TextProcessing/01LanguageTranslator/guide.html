@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Language Translator Documentation</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="easyui-accordion">
+        <div title="About" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+            <h3 style="color:#0099FF;">About</h3>
+            <img src="https://bluecloudnews.com/wp-content/uploads/2016/09/lang-translator.jpg" alt="lang-translation" width="1054" height="256" class="alignnone size-full wp-image-524" />
+			<strong>How it Works</strong>
+			Language Translator uses statistical machine translation to translate text from one language to another. The service offers multiple domain-specific models that you can customize based on your unique terminology and language. Use Language Translator to take news from across the globe and present it in your language, communicate with your customers in their own language, and more.
+			<strong>Intended use</strong>
+			Use Language Translator in any application that can benefit from real-time, domain-specific translation abilities such as:
+			<ul>
+			  <li>Enable an English-speaking help desk representative to assist a Spanish-speaking customer through chat</li>
+			  <li>A French news website can source news from across the globe and present it to users in their chosen language</li>
+			  <li>Translate product descriptions from English to Arabic using a custom model tailored to a specific bank's product names and terminology</li>
+			  <li>A US patent attorney can effectively discover prior art based on invention disclosures made in Korean with the Korean Patent Office</li>
+			</ul>
+			<strong>Your Input</strong>
+			<ul>
+			  <li>Plain text in one of the supported input languages and domains</li>
+			</ul>
+			<strong>Service Output</strong>
+			<ul>
+			  <li>Plain text in the target language selected</li>
+			</ul>
+        </div>
+        <div title="Code Walkthrough" data-options="iconCls:'icon-help',collapsed:false" style="padding:10px;">
+            <p>API Key need to be obtained by creating Watson Language Translator Service at :<a target="_blank" href="https://console.ng.bluemix.net/catalog/services/language-translator/">Language Translator</a></p>
+            <h3 style="color:#0099FF;">Code Walkthrough</h3>
+            <ol>
+                <li>When you run the code the username and password is expected to be set for the Language Translator API Service to be used.</li>
+                <li>Other params: The text to be translated , from language and to language</li>
+            </ol>
+        </div>
+        <div title="Video and Documentation" data-options="iconCls:'icon-help'" style="padding:10px;">
+            <h3 style="color:#0099FF;">Video</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/bYtVaQxJ994" frameborder="0" allowfullscreen></iframe>
+
+            <h3 style="color:#0099FF;">Documentation</h3>
+            <p>For documentation visit <a target="_blank" href="https://www.ibm.com/watson/developercloud/language-translator.html">Language Translator Documentation</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
