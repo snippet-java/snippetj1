@@ -18,17 +18,30 @@
 <body>
     <div class="easyui-accordion">
         <div title="About" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
-            <h3 style="color:#0099FF;">About</h3>
-            This is a hello world sample.
+            <h3 style="color:#0099FF;">Challenge:</h3>
+            Assign your first name and last name to the variables firstName and lastName respectively.Then print the variable fullName.
         </div>
-        <div title="Code Walkthrough" data-options="iconCls:'icon-help',collapsed:false" style="padding:10px;">
-            <h3 style="color:#0099FF;">Code Walkthrough</h3>
-            <ol>
-                <li>Prints Hello World</li>
-            </ol>
-        </div>
-        <div title="Video and Documentation" data-options="iconCls:'icon-help'" style="padding:10px;">
-            To be updated
+    </div>
+    <div class="easyui-accordion">
+        <div title="About" data-options="iconCls:'icon-ok',collapsed:true" style="overflow:auto;padding:10px;">
+            <h3 style="color:#0099FF;">Solution:</h3>
+            <code>
+                <pre>
+public class Concat {           
+    public static void main(String args[]) {
+        //Assign your first name
+        String firstName = "John";
+         
+        //Assign your last name
+        String lastName =  " Smith";    
+         
+        //Join firstName and lastName and print it.
+        String fullName =  firstName.concat(lastName);
+        System.out.println(fullName);
+    }
+}
+                </pre>
+            </code>
         </div>
     </div>
 </body>

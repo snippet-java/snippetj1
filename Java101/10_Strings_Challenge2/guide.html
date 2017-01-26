@@ -18,17 +18,31 @@
 <body>
     <div class="easyui-accordion">
         <div title="About" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
-            <h3 style="color:#0099FF;">About</h3>
-            This is a hello world sample.
+            <h3 style="color:#0099FF;">Challenge:</h3>
+            A variable <code>sentence</code> is defined with <code>James likes Maths class</code>. Change the value of sentence to  <code>James likes English class</code>
+<br>
         </div>
-        <div title="Code Walkthrough" data-options="iconCls:'icon-help',collapsed:false" style="padding:10px;">
-            <h3 style="color:#0099FF;">Code Walkthrough</h3>
-            <ol>
-                <li>Prints Hello World</li>
-            </ol>
-        </div>
-        <div title="Video and Documentation" data-options="iconCls:'icon-help'" style="padding:10px;">
-            To be updated
+    </div>
+    <div class="easyui-accordion">
+        <div title="About" data-options="iconCls:'icon-ok',collapsed:true" style="overflow:auto;padding:10px;">
+            <h3 style="color:#0099FF;">Solution:</h3>
+            <code>
+                <pre>
+public class StringFunctions {		
+		public static void main(String args[]) {
+			String  sentence = "James likes Maths class";
+
+			//Change the order to "James likes English class"
+			sentence  = sentence.replace("Maths", "English");
+			System.out.println(sentence);
+
+			//assign length with the length of the new order string.
+			int length = sentence.length();
+			System.out.println("Length of the variable 'sentence' is: "+length);
+		}
+	}
+                </pre>
+            </code>
         </div>
     </div>
 </body>
