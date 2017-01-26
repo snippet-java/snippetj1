@@ -1,8 +1,8 @@
 {
-  "name": "Watson-Language-Translator",
+  "name": "Language-Translator",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ibmecod/snippetj1"
+    "url": "https://github.com/snippet-java/snippetj1/tree/master/C01TextProcessing/01LanguageTranslator"
   }
 }

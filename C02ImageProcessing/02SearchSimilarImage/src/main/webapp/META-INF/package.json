@@ -1,0 +1,8 @@
+{
+  "name": "Visual-Recognition-Similar-Image",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snippet-java/snippetj1/tree/master/C02ImageProcessing/02SearchSimilarImage"
+  }
+}

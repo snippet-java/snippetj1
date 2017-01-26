@@ -18,7 +18,9 @@ import com.ibm.watson.developer_cloud.visual_recognition.v3.model.VisualRecognit
 @WebServlet("/")
 public class Snippet extends SuperGluev2 {
 
-	public String parameters = "{\"apiKey\":\"cf8ff9af4fd5323e190b6df6b730ab4919464c73\",\"url\":\"https://www.whitehouse.gov/sites/whitehouse.gov/files/images/first-family/44_barack_obama%5B1%5D.jpg\"}";
+	public String parameters = 
+			"{\"apiKey\":\"cf8ff9af4fd5323e190b6df6b730ab4919464c73\","
+			+ "\"url\":\"https://www.whitehouse.gov/sites/whitehouse.gov/files/images/first-family/44_barack_obama%5B1%5D.jpg\"}";
 	
 	@Override
 	protected JsonObject process(String jsonString) {
