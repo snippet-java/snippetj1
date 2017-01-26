@@ -1,4 +1,4 @@
-public class Concat {			
+public class Snippet{			
 			public static void main(String args[]) {
 				//Assign your first name
 				String firstName = ___;

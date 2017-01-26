@@ -1,4 +1,4 @@
-public class StringFunctions {	
+public class Snippet{	
 	public static void main(String args[]) {
 		String fullName="John Smith";    
 		String firstName =fullName.substring(0,4);//This will fetch the sub string from the character at index 0 till 4 (4 is exclusive)

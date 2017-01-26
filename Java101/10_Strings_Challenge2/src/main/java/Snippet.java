@@ -1,4 +1,4 @@
-public class StringFunctions {
+public class Snippet{
 	
 	public static void main(String args[]) {
 		String  sentence = "James likes Maths class";
