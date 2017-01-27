@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Conversion between Integer and String</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="easyui-accordion">
+        <div title="Code Walkthrough" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+        <ol>
+            <li>Integer 'number' is declared and assigned to 128</li>
+            <li>'Integer.toString()' is used to convert the 'number' to a String</li>
+            <li>'Integer.parseInt()' is used to convert string to a number</li>
+        </ol>
+            
+<br>
+        </div>
+    </div>
+    <div class="easyui-accordion">
+        <div title="Description" data-options="iconCls:'icon-ok',collapsed:true" style="overflow:auto;padding:10px;">
+<strong>Conversion between Integer and String</strong>
+</br>
+            Sometimes you will need to turn a number into a string.In those instances you will use the <strong>toString()</strong> method of the Integer class. Here’s an example: 
+</br>
+<code><pre>
+int number = 20;
+String numberAsString = Integer.toString(number);
+</pre></code>
+</br>
+Similary the strings can also be converted into numbers. The <code>parseInt()</code> function of the Integer class converts the String object to <strong>int</strong>.
+</br>
+<code><pre>
+String numberAsString = "100"
+int number = Integer.parseInt(numberAsString);
+</pre></code>
+</br>
+
+        </div>
+    </div>
+</body>
+
+</html>

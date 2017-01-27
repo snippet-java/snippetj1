@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Area of Circle Challenge</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="easyui-accordion">
+        <div title="Challenge" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+           
+             The radius is defined. Find the area and circumference of circle. You can use Math.PI for value of PI.
+<br>
+        </div>
+    </div>
+    <div class="easyui-accordion">
+        <div title="Solution" data-options="iconCls:'icon-ok',collapsed:true" style="overflow:auto;padding:10px;">
+            <code>
+                <pre>
+class Snippet 
+{
+     
+    public static void main(String args[]) {        
+    int radius = 5;
+     
+    //Area of a circle can be calculated using PI(R Squared)
+    double area = Math.PI * radius * radius ;
+    System.out.println("Area of the circle is "+area);
+      
+    //Area of a circle can be calculated using the formula 2PIr
+    double circumference = 2 * Math.PI * radius ;
+    System.out.println("Circumference of the circle is "+circumference);
+      
+    //Assign the rounded value of circumference to roundedCircumference
+    double roundedCircumference = Math.round(circumference);
+    System.out.println("Circumference of the circle after rounding is "+roundedCircumference);      
+    }
+}
+                </pre>
+            </code>
+        </div>
+    </div>
+</body>
+
+</html>

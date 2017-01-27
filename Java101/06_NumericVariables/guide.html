@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Numeric variables and operators</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="easyui-accordion">
+        <div title="Code Walkthrough" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+            Converting celsius to fahrenheit using the operators 
+            <ol>
+                <li>To convert temperatures in degrees Celsius to Fahrenheit, multiply  by 1.8 (or 9/5) and add 32.</li>
+                <li>/To convert temperatures in degrees Fahrenheit to Celsius, subtract 32 and multiply by .5556 (or 5/9).And back to celsius to validate the answer</li>
+                <li>Print temperature in fahrenheit and celsius</li>
+            </ol>
+            
+<br>
+        </div>
+    </div>
+    <div class="easyui-accordion">
+        <div title="Description" data-options="iconCls:'icon-ok',collapsed:true" style="overflow:auto;padding:10px;">
+            <strong>1.3 Numeric variables and operators</strong>
+</br>
+
+Numeric variables are variables representing numbers.They can be of the following types in Java:
+
+<code><pre>
+byte
+short
+int
+long
+float
+double
+</pre></code>
+
+Operators are symbols used to represent computations like addition and
+multiplication. Most operators in Java do what you expect them to do because
+they are common mathematical symbols. For example, the operator
+for addition is +. Subtraction is -, multiplication is *, and division is /.
+
+<code><pre>
+int x = 100 + 50;
+//Value of x is 150
+
+int x = (100 + 50) * 2;
+//Value of x is 300
+
+int x = (100 - 50) / 2;
+//Value of x is 25
+
+//add a number to itself 
+int x = 25;
+x += 50;
+//Value of x is 75.
+
+//subtract a number from itself 
+int x = 25;
+x -= 25;
+//Value of x is 0.
+
+
+//multiply a number by itself 
+int x = 25;
+x *= 5;
+//Value of x is 125.
+
+
+//divide a number by itself 
+int x = 25;
+x /= 5;
+//Value of x is 5.
+
+//increase a number intiable by one
+int x = 10;
+x ++;
+//value of x is 11
+
+//decrease a number intiable by one
+int x = 10;
+x --;
+//value of x is 9
+
+</pre></code>
+</br>
+<Strong>Note:</Strong>When both operands are integers (operands are the things operators operate
+on), the result is also an integer, and by convention integer division always
+rounds down, even in cases like this where the next integer is so close.
+</br>
+</br>
+<strong>Order of operations</strong>
+</br>
+When more than one operator appears in an expression, the order of evaluation
+depends on the rules of precedence
+</br>
+<ul>
+<li>
+Multiplication and division happen before addition and subtraction.
+So 2*3-1 yields 5, not 4, and 2/3-1 yields -1, not 1 (remember that in
+integer division 2/3 is 0).
+</li>
+<li>
+If the operators have the same precedence they are evaluated from left
+to right. So in the expression <code>minute*100/60</code>, the multiplication happens
+first.
+</li>
+<li>
+Any time you want to override the rules of precedence (or you are not
+sure what they are) you can use parentheses. Expressions in parentheses
+are evaluated first, so 2 *(3-1) is 4. You can also use parentheses
+to make an expression easier to read, as in <code>(minute * 100) / 60</code>, even
+though it doesn’t change the result
+</li>
+</ul>
+</br>
+        </div>
+    </div>
+</body>
+
+</html>

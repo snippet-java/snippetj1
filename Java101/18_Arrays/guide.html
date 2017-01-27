@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Arrays</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="easyui-accordion">
+        <div title="Code Walkthrough" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+           <ol>
+               <li>String array studentNames is declared and initialized with three strings</li>
+               <li>for loop is used to iterate over an array</li>
+               <li>The last time the body of the loop gets executed, <strong>i</strong> is <strong>studentNames.length - 1</strong>, which
+is the index of the last element. When <strong>i</strong> is equal to <strong>studentNames.length</strong>, the condition
+fails and the body is not executed.</li>
+           </ol>
+
+<br>
+        </div>
+    </div>
+    <div class="easyui-accordion">
+        <div title="Description" data-options="iconCls:'icon-ok',collapsed:true" style="overflow:auto;padding:10px;">
+          An array is a set of values where each value is identified by an index. You
+can make an array of ints, doubles, or any other type, but all the values in
+an array have to have the same type.
+</br>
+Syntactically, array types look like other Java types except they are followed
+by []. For example, <strong>int[]</strong> is the type “array of integers” and <strong>double[]</strong> is
+the type “array of doubles.” You can declare variables with these types in the usual ways:
+</br>
+<code><pre>
+int[] count;
+double[] value;
+//Initialize
+count = new int[4];
+values = new double[size];
+</pre></code>
+</br>
+To store values in the array, use the [] operator. For example <strong>count[0]</strong>
+refers to the “zeroeth” element of the array, and <strong>count[1]</strong> refers to the
+“oneth” element. You can use the [] operator anywhere in an expression:
+<code><pre>
+count[0] = 7;
+count[1] = count[0] * 2;
+count[2]++;
+count[3] -= 60;
+
+//Looping through array elements
+//This is a standard while loop that counts from 0 up to 4
+int i = 0;
+while (i < 4) {
+	System.out.println(count[i]);
+	i++;
+}
+</pre></code>
+<strong>Array length</strong>
+</br>
+All arrays have one named instance variable: <strong>length</strong>. Not surprisingly, it
+contains the length of the array (number of elements). It is a good idea to
+use this value as the upper bound of a loop, rather than a constant value.
+That way, if the size of the array changes, you won’t have to go through the
+program changing all the loops; they will work correctly for any size array.Find out more about Instance variables in the section 5.
+</br>
+
+</br>
+
+        </div>
+    </div>
+</body>
+
+</html>
