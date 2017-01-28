@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Function Basics</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="easyui-accordion">
+        <div title="Code Walkthrough" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+           <ol>
+               
+    <code>isEven</code> accept's an integer as parameter and returns boolean <code>true</code> if the number is even , else returns <code>false</code>
+               <li>'isEven' is an function that accepts integer as a parameter and returns boolean</li>
+               <li>num is divided by 2 with '%' operator</li>
+               <li>'true' is returned if the remider is 0, else 1 is returned</li>
+           </ol>
+
+<br>
+        </div>
+    </div>
+    <div class="easyui-accordion">
+        <div title="Description" data-options="iconCls:'icon-ok',collapsed:true" style="overflow:auto;padding:10px;">
+        <strong>Functions basics</strong>
+</br>
+
+A function is a block of code that takes input, processes that input, and then produces output.A function is composed of a sequence of statements called the function body. Values can be passed to a function, and the function may return a value. Functions can be called any number of times and this makes the code resusable.  We have already seen one function definition: <strong>main</strong>. The
+method named main is special, but the syntax is the same for other methods:
+</br>
+<code><pre>
+public static void NAME( LIST OF PARAMETERS ) {
+	STATEMENTS
+}
+</pre></code>
+</br>
+You can make up any name you want for your function, except that you
+can’t call it <strong>main</strong> or any Java keyword. 
+<br>
+<code><pre>
+public static void newLine() {
+	System.out.println("");
+}
+</pre></code>
+
+<br>
+
+<br>
+The list of parameters specifies what information, if any, you have to provide
+to use (or invoke) the new method. In this example the parameter 'num' is passed to the function isEven. Find more about the function parameters and arguements 
+in the section 4.2
+<br>
+
+</br>
+
+</br>
+
+        </div>
+    </div>
+</body>
+
+</html>

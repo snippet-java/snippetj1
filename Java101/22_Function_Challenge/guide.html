@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Functions Challenge</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="easyui-accordion">
+        <div title="Challenge" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+Program to print stars in the following format for n rows <br>
+* <br>
+** <br>
+*** <br>
+**** <br>
+<strong>getStarsString()</strong> takes <strong>currentRow </strong>as a parameter and returns the string containing <strong>currentRow </strong>number of stars. 
+        </div>
+    </div>
+    <div class="easyui-accordion">
+        <div title="Solution" data-options="iconCls:'icon-ok',collapsed:true" style="overflow:auto;padding:10px;">
+            <code>
+                <pre>
+public class Snippet {
+    public static void main(String args[]) {
+        int numRows = 10;
+        //Printing the 'numRows' rows
+        for(int currentRow = 1 ; currentRow <= numRows ; currentRow++){          
+            //Call the function getStarsString() with currentRow
+            String stars = getStarsString(currentRow);          
+            //to print new line
+            System.out.println(stars);
+        } 
+    }
+     
+    public static String getStarsString(int currentRow) {
+        //The number of stars in each row is same the the row number
+        String stars = "";
+        for(int numStars = 1 ; numStars <= currentRow ; numStars++) {
+            stars = stars + '*';
+        }
+        return stars;
+    }
+}
+                </pre>
+            </code>
+        </div>
+    </div>
+</body>
+
+</html>
