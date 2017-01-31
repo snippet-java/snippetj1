@@ -21,7 +21,7 @@
 <script>hljs.initHighlightingOnLoad();</script>
 </head>
 
-<body style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+<body style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px">
     <div class="easyui-accordion">
         <div title="Code Walkthrough" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
             Converting celsius to fahrenheit using the operators 
@@ -119,11 +119,13 @@ Multiplication and division happen before addition and subtraction.
 So 2*3-1 yields 5, not 4, and 2/3-1 yields -1, not 1 (remember that in
 integer division 2/3 is 0).
 </li>
+<br>
 <li>
 If the operators have the same precedence they are evaluated from left
 to right. So in the expression <code>minute*100/60</code>, the multiplication happens
 first.
 </li>
+<br>
 <li>
 Any time you want to override the rules of precedence (or you are not
 sure what they are) you can use parentheses. Expressions in parentheses
@@ -131,6 +133,7 @@ are evaluated first, so 2 *(3-1) is 4. You can also use parentheses
 to make an expression easier to read, as in <code>(minute * 100) / 60</code>, even
 though it doesn’t change the result
 </li>
+<br>
 </ul>
 </br>
         </div>
