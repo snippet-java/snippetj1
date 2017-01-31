@@ -17,7 +17,7 @@ import com.ibm.watson.developer_cloud.alchemy.v1.model.DocumentsResult;
 @WebServlet("/")
 public class Snippet extends SuperGluev2 {
 
-	public String parameters = "{\"apiKey\":\"8bea72d282329f66b671f37e49e164a6ab51c2b3\"}";
+	public String parameters = "{\"apiKey\":\"d740b4c113d1255004bb2b26e5e05d1cccb8d186\"}";
 	
 	@Override
 	protected JsonObject process(String jsonString) {
