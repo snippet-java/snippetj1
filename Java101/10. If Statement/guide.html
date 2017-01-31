@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>If and Else</title>
+    <title>If Statement</title>
     <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
     <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -13,23 +13,26 @@
     <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
     <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
     <script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </head>
 
-<body>
+<body style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">
     <div class="easyui-accordion">
         <div title="Code Walkthrough" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
 
         <ul>
             Objectives:
-            <li>Test if x is positive</li>
-            <li>If first character of the name is vowel , An is appended to the name and printed. If not(else) ,  'name' is printed alone. </li>
+            <li>Test if x is positive</li><br>
+            <li>If first character of the name is vowel , An is appended to the name and printed. If not(else) ,  'name' is printed alone. </li><br>
         </ul>
         
         <ol>
-            <li>'x' is declared and assigned with value '10'</li>
-            <li>condition 'x>0' is used in 'if' to check if x is positive or not</li>
-            <li>'name' is declared and assigned with value 'apple'</li>
-            <li>condition '"AaEeIiOoUu".indexOf(name.charAt(0)) > -1' is used to check if the first letter in the variable 'name' is an vowel or not</li>
+            <li>'x' is declared and assigned with value '10'</li><br>
+            <li>condition 'x>0' is used in 'if' to check if x is positive or not</li><br>
+            <li>'name' is declared and assigned with value 'apple'</li><br>
+            <li>condition '"AaEeIiOoUu".indexOf(name.charAt(0)) > -1' is used to check if the first letter in the variable 'name' is an vowel or not</li><br>
         </ol>
             
 <br>
@@ -48,16 +51,14 @@ happens.The condition can contain any of the comparison operators, sometimes cal
 relational operators:
 
 </br>
-<code>
-    <pre>   
+<pre><code class="java">   
 x == y // x equals y
 x != y // x is not equal to y
 x > y // x is greater than y
 x < y // x is less than y
 x  >= y // x is greater than or equal to y
 x <= y // x is less than or equal to y
-    </pre>
-</code>
+    </code></pre>
 </br>
 
 <strong> Alternative execution with 'else'</strong>

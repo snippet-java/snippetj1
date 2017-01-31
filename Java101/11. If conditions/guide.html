@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Nested and Chained Conditionals</title>
+    <title>if Conditionals</title>
     <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
     <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -13,17 +13,20 @@
     <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
     <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
     <script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </head>
 
-<body>
+<body style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">
     <div class="easyui-accordion">
         <div title="Code Walkthrough" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
 
         
         <ol>
-            <li>Declare the variable 'x' and assign it to '10'</li>
-            <li>Check if 'x' is positive by using chained conditionals</li>
-            <li>check if 'x' is positive by using nested conditionals</li>
+            <li>Declare the variable 'x' and assign it to '10'</li><br>
+            <li>Check if 'x' is positive by using chained conditionals</li><br>
+            <li>check if 'x' is positive by using nested conditionals</li><br>
         </ol>
             
 <br>
@@ -40,8 +43,7 @@ one of several actions. One way to do this is by chaining a series of <strong>if
 These chains can be as long as you want, although they can be difficult to read if they get out of hand
 </br>
 </br>
-<code>
-    <pre>
+<pre><code class="java">
         if(){
             //Statements
         } else if() {
@@ -49,13 +51,11 @@ These chains can be as long as you want, although they can be difficult to read 
         } else{
              //Statements
         }
-    </pre>
-</code>
+    </code></pre>
 <strong> Nested conditionals:</strong>
 </br>
 In addition to chaining, you can also nest one conditional within another.
-<code>
-    <pre>
+<pre><code class="java">
         if(){
             //Statements
         } else {
@@ -65,8 +65,7 @@ In addition to chaining, you can also nest one conditional within another.
                 //Statements
             }
         }
-    </pre>
-</code>
+    </code></pre>
         </div>
     </div>
 </body>

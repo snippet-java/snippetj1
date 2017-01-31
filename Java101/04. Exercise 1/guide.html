@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>String Challenge 1</title>
+    <title>Exercise 1</title>
     <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
     <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -13,18 +13,20 @@
     <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
     <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
     <script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </head>
 
-<body>
+<body style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">
     <div class="easyui-accordion">
-        <div title="Challenge" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+        <div title="Exercise" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
             Assign your first name and last name to the variables firstName and lastName respectively.Then print the variable fullName.
         </div>
     </div>
     <div class="easyui-accordion">
         <div title="Show Solution" data-options="iconCls:'icon-ok',collapsed:true" style="overflow:auto;padding:10px;">
-            <code>
-                <pre>
+            <pre><code class="java">
 public class Snippet {           
     public static void main(String args[]) {
         //Assign your first name
@@ -38,8 +40,7 @@ public class Snippet {
         System.out.println(fullName);
     }
 }
-                </pre>
-            </code>
+                </code></pre>
         </div>
     </div>
 </body>

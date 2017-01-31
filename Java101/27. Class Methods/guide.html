@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Method Overloading</title>
+    <title>Class Method Overloading</title>
     <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
     <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -13,9 +13,12 @@
     <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
     <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
     <script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </head>
 
-<body>
+<body style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">
     <div class="easyui-accordion">
         <div title="Code walkthrough" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
          This example explains different levels of scope like method level scope , block level scope
@@ -29,16 +32,16 @@ Variables can be declared in several different places.
 <ol>
 <li>
 In a class body as class fields. Variables declared here are referred to as class-level variables.
-</li>
+</li><br>
 <li>
 As parameters of a method or constructor.
-</li>
+</li><br>
 <li>
 In a method's body or a constructor's body.
-</li>
+</li><br>
 <li>
 Within a statement block, such as inside a while or for block.
-</li>
+</li><br>
 </ol>
 
         </div>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Array Challenge</title>
+    <title>Exercise 8</title>
     <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
     <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -13,19 +13,21 @@
     <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
     <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
     <script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </head>
 
-<body>
+<body style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">
     <div class="easyui-accordion">
-        <div title="Challenge" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+        <div title="Exercise" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
            
 Reverse the elements of tha array <strong>var </strong>into the destination array <strong>reverseVar</strong>
         </div>
     </div>
     <div class="easyui-accordion">
         <div title="Solution" data-options="iconCls:'icon-ok',collapsed:true" style="overflow:auto;padding:10px;">
-            <code>
-                <pre>
+            <pre><code class="java">
 import java.util.Arrays;
 //Reverse the elements in the array var and place in the array reverseVar
 class Snippet {
@@ -47,8 +49,7 @@ class Snippet {
       System.out.println(Arrays.toString(reverseVar));
     }
 }
-                </pre>
-            </code>
+                </code></pre>
         </div>
     </div>
 </body>

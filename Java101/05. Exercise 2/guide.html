@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>String Challenge 2</title>
+    <title>Exercise 2</title>
     <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
     <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -13,19 +13,21 @@
     <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
     <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
     <script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </head>
 
-<body>
+<body style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">
     <div class="easyui-accordion">
-        <div title="Challenge" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+        <div title="Exercise" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
             A variable <code>sentence</code> is defined with <code>James likes Maths class</code>. Change the value of sentence to  <code>James likes English class</code>
 <br>
         </div>
     </div>
     <div class="easyui-accordion">
         <div title="Show Solution" data-options="iconCls:'icon-ok',collapsed:true" style="overflow:auto;padding:10px;">
-            <code>
-                <pre>
+            <pre><code class="java">
 public class Snippet {		
 		public static void main(String args[]) {
 			String  sentence = "James likes Maths class";
@@ -39,8 +41,7 @@ public class Snippet {
 			System.out.println("Length of the variable 'sentence' is: "+length);
 		}
 	}
-                </pre>
-            </code>
+                </code></pre>
         </div>
     </div>
 </body>
