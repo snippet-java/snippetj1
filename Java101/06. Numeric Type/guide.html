@@ -22,23 +22,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
 </head>
 
-<body style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">
+<body style="font-family: Monospace;font-size:12.5px !important">
     <div class="easyui-accordion">
-        <div title="Code Walkthrough" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
+        <div title="Code Walkthrough" data-options="collapsed:false" style="overflow:auto;padding:10px;">
             Converting celsius to fahrenheit using the operators 
             <ol>
-                <li>To convert temperatures in degrees Celsius to Fahrenheit, multiply  by 1.8 (or 9/5) and add 32.</li><br>
-                <br>    
+                <li>To convert temperatures in degrees Celsius to Fahrenheit, multiply  by 1.8 (or 9/5) and add 32.</li><br>   
                 <li>To convert temperatures in degrees Fahrenheit to Celsius, subtract 32 and multiply by .5556 (or 5/9).</li><br>
-                <br>
                 <li>Convert back to celsius to validate the answer</li><br>
-                <br>
-                <li>Print temperature in fahrenheit and celsius</li><br>
+                <li>Print temperature in fahrenheit and celsius</li>
             </ol>
-            
-<br>
         </div>
     </div>
     <div class="easyui-accordion">
@@ -122,13 +119,11 @@ Multiplication and division happen before addition and subtraction.
 So 2*3-1 yields 5, not 4, and 2/3-1 yields -1, not 1 (remember that in
 integer division 2/3 is 0).
 </li><br>
-<br>
 <li>
 If the operators have the same precedence they are evaluated from left
 to right. So in the expression <code>minute*100/60</code>, the multiplication happens
 first.
 </li><br>
-<br>
 <li>
 Any time you want to override the rules of precedence (or you are not
 sure what they are) you can use parentheses. Expressions in parentheses
@@ -136,7 +131,6 @@ are evaluated first, so 2 *(3-1) is 4. You can also use parentheses
 to make an expression easier to read, as in <code>(minute * 100) / 60</code>, even
 though it doesn’t change the result
 </li><br>
-<br>
 </ul>
 </br>
         </div>
