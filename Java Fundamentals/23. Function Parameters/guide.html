@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Function Parameters</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+.panel-body {
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body style="font-family: Monospace;">
+    <div class="easyui-accordion">
+        <div title="Code Walkthrough" data-options="collapsed:false" style="overflow:auto;padding:10px;">
+           <ol>               
+    Function to print 'studentName','marks' and 'course'
+               <li>'studentName','marks' and 'course' are passed as parametes to the function 'studentMarks'</li>
+               <li>They are printed in the function</li>
+               <li>'studentMarks()' function is called twice in main method</li>
+           </ol>
+
+<br>
+        </div>
+    </div>
+    <div class="easyui-accordion">
+        <div title="Description" data-options="collapsed:true" style="overflow:auto;padding:10px;">
+<strong>Function Parameters</strong>
+</br>
+Some of the methods we have used require arguments, which are values
+that you provide when you invoke the method. To print a string, you have to provide the string, so <code>println</code>
+takes a String as an argument.
+</br>
+When you use a method, you provide arguments. When you write a method,
+you specify a list of parameters. A parameter is a variable that stores an
+argument. The parameter list indicates what arguments are required.
+</br>
+<pre><code class="java">
+//Here 's' is a single parameter of type String
+class MethodArgumentsParameters {
+	public static void printTwice(String s) {
+		System.out.println(s);
+		System.out.println(s);
+		printTwice("Dont make me say this twice!");
+	}
+
+	public static void main(String[] args) {
+		//Single argument of type String is provided
+		printTwice("Don't make me say this twice!");
+	}
+}
+</code></pre>
+<Strong> Methods that return values </Strong>
+<br>
+<pre><code class="java">
+//int is the type of return value.
+public int square(int num) {
+    //Returns the square of num
+	return num*num;
+}
+int value = square(4); //Now the 'value' is 16
+value = square(5); // Now the 'value' is 25
+</code></pre>
+</br>
+In the above example ,the <strong>num </strong>is passed to function<strong> square()</strong>. This function computes the <strong>square() </strong>of the <strong>num </strong>and returns it back.
+<br>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

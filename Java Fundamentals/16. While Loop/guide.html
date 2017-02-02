@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>While Loop</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+.panel-body {
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body style="font-family: Monospace;">
+    <div class="easyui-accordion">
+        <div title="Code Walkthrough" data-options="collapsed:false" style="overflow:auto;padding:10px;">
+           <ol>
+               <li>variable 'n' is declared and assigned to 1</li>
+               <li>print form 1 to 10 with and 'while' loop</li>
+               <li>assign 1 to 'n' again</li>
+               <li>print from 1 to 10 with 'do while' loop</li>
+           </ol>
+
+<br>
+        </div>
+    </div>
+    <div class="easyui-accordion">
+        <div title="Description" data-options="collapsed:true" style="overflow:auto;padding:10px;">
+           <strong>While and Do loops</strong>
+</br>
+Looping control flow allows us to go back to some point in the program where we were before and repeat it with our current program state. Two more ways to loop instead of using <code>for</code> is using <code>while</code> or <code>do while</code> 
+</br>
+What this means is,
+“While <strong>n</strong> is less than 10, print the value of <strong>n</strong> and then increase the value
+of<strong> n</strong> by 1.
+</br></br>
+<strong>More formally, the flow of execution for a while statement is as follows:</strong>
+<ol>
+	<li>Evaluate the condition in parentheses, yielding true or false.</li>
+    <li>If the condition is false, exit the while statement and continue execution at the next statement.</li>
+    <li>If the condition is true, execute the statements between the squigglybrackets,and then go back to step 1</li>
+</ol>
+<br>
+This type of flow is called a <strong>loop</strong> because the third step loops back around
+to the top. The statements inside the loop are called the body of the loop.
+If the condition is false the first time through the loop, the statements inside
+the loop are never executed.The body of the loop should change the value of one or more variables so
+that, eventually, the condition becomes false and the loop terminates. Otherwise
+the loop will repeat forever, which is called an infinite loop.
+<br>
+<br>
+The do while loop is a control structure similar to the while loop. It differs only on one point: a do loop always executes its body at least once, and it starts testing whether it should stop only after that first execution 
+<br>
+        </div>
+    </div>
+</body>
+
+</html>

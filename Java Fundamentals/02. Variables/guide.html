@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Variables Documentation</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+.panel-body {
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body style="font-family: Monospace;">
+    <div class="easyui-accordion">
+         <div title="Code Walkthrough" data-options="iconCls:'icon-help',collapsed:false" style="padding:10px;">
+            <ol>
+                <li>two variables <code>firstName</code> and <code>lastName</code> are declared and assigned with <code>James</code> and <code>Smith</code> respectively.</li>
+                <li>Both the variables are printed with the method <code>System.out.println()</code></li>
+            </ol>
+        </div>
+        <div title="Description" data-options="collapsed:false" style="overflow:auto;padding:10px;">
+            A variable is a named location that stores a value.
+Values are things that can be printed, stored and (as we’ll see later) operated on.
+</br>
+To store a value, you have to create a variable. Since the values we want to
+store are strings, we declare that the new variable is a string:
+</br>
+<pre><code class="java">
+String studentName;
+</code></pre>
+</br>
+This statement is a declaration, because it declares that the variable named
+<code>studentName</code> has the type String. Each variable has a type that determines what
+kind of values it can store. For example, the <strong>int </strong>type can store integers, and
+the <strong>String </strong>type can store strings
+</br>
+</br>
+<strong>Assignment</strong>
+</br>
+Now that we know how to declare a variable , we want to store values. We do that
+with an assignment statement
+</br>
+<pre><code class="java">
+String studentName = "John"; // give studentName the value "studentName"
+int marks = 80; // assign the value 80 to marks
+char grade = 'A'; // set grade to 'A'
+</pre><code>
+<ul>
+	<li>When you declare a variable, you create a named storage location.</li>
+	<li>When you make an assignment to a variable, you give it a value</li>
+</ul>
+
+        </div>
+       
+    </div>
+</body>
+
+</html>

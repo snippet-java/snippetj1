@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Functions Parameters Exercise</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+.panel-body {
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body style="font-family: Monospace;">
+    <div class="easyui-accordion">
+        <div title="Exercise" data-options="collapsed:false" style="overflow:auto;padding:10px;">
+Complete the below code to find the total number of <strong>A </strong>grades from the array <strong>studentsWithGrade</strong>. This array holds Student name along with his grade.
+<br>
+        </div>
+    </div>
+    <div class="easyui-accordion">
+        <div title="Solution" data-options="collapsed:true" style="overflow:auto;padding:10px;">
+            <pre><code class="java">
+public class Snippet {          
+    public static void main(String args[]) {
+        String[][] studentsWithGrade;
+        studentsWithGrade = new String[3][2];
+         
+        //Student1
+        studentsWithGrade[0][0] = "John";
+        studentsWithGrade[0][1] = "A";  
+        //Student2
+        studentsWithGrade[1][0] = "Linda";
+        studentsWithGrade[1][1] = "A"; 
+        //Student3      
+        studentsWithGrade[2][0] = "Sam";
+        studentsWithGrade[2][1] = "B";  
+         
+        System.out.println("Number of students with grade 'A' are : " +findNoOfAGrades(studentsWithGrade));
+    }
+     
+    public static int findNoOfAGrades(String[][] studentsWithGrade) {
+        int noOfAGrades = 0;
+        //Iterate over the array studentsWithGrade
+        for(int i = 0 ; i < studentsWithGrade.length ; i++ ) {
+            //Check if the grade of this student is A
+            if(studentsWithGrade[i][1] == "A") {
+                noOfAGrades++;
+            }
+        }       
+        return noOfAGrades;     
+    }
+}
+                </code></pre>
+        </div>
+    </div>
+</body>
+
+</html>

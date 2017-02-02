@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Arrays</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+.panel-body {
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body style="font-family: Monospace;">
+    <div class="easyui-accordion">
+        <div title="Code Walkthrough" data-options="collapsed:false" style="overflow:auto;padding:10px;">
+           <ol>
+               <li>Declare a two dimensional array 'studentFullName'</li>
+               <li>Initialize the array with strings</li>
+               <li>Print all the first names</li>
+               <li>Print all the last names</li>
+           </ol>
+
+<br>
+        </div>
+    </div>
+    <div class="easyui-accordion">
+        <div title="Description" data-options="collapsed:true" style="overflow:auto;padding:10px;">
+
+The arrays you have been using so far have only held one column of data. But you can set up an array to hold more than one column. These are called multi-dimensional arrays
+<br>
+<pre><code class="java">
+int[ ][ ] studentFullName = new int[6][5];
+</code></pre>
+<br>
+They are set up in the same way as a normal array, except you have two sets of square brackets. The first set of square brackets is for the rows and the second set of square brackets is for the columns. In the above line of code, we're telling Java to set up an array with 6 rows and 5 columns. To hold values in a multi-dimensional array you have to take care to track the rows and columns. Here's some code to fill the two dimensional array with first name and last name of students.
+<br><br>
+
+        </div>
+    </div>
+</body>
+
+</html>
