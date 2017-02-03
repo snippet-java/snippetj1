@@ -1,6 +1,7 @@
 public class Snippet{  
   public static void main(String args[]){
-    //Two boolean variable on and off are defined with boolean booleaniables true and false
+    //Two boolean variable on and off are defined 
+    //with boolean booleaniables true and false
     boolean on = true;
     boolean off = false;
     System.out.println(on); 

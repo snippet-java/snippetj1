@@ -1,5 +1,6 @@
   import java.util.Arrays;
-  //Reverse the elements in the array var and place in the array reverseVar
+  //Reverse the elements in the array var and 
+  //place in the array reverseVar
   class Snippet{
     public static void main(String[] args) {
       System.out.println("Declare and initialize an array");
