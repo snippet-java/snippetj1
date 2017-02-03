@@ -157,7 +157,7 @@ public class Snippet extends SuperGluev2 {
 					"public" + File.separator + "snippets" + File.separator + "java" + File.separator +
 					"InfoRetrieval" + File.separator + "03AlchemyNews" + File.separator + "output.html");
 			FileWriter fileWriter = new FileWriter(file);
-			fileWriter.write("test123");
+			fileWriter.write(html);
 			fileWriter.flush();
 			fileWriter.close();
 		} catch (IOException e) {
