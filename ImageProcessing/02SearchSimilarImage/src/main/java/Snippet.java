@@ -26,7 +26,12 @@ import com.google.gson.JsonParser;
 public class Snippet extends SuperGluev2 {
 
 	private static String credentialKey = "cf8ff9af4fd5323e190b6df6b730ab4919464c73";
+	//this is shirt image
 	private static String image = "http://www.binhindioutlet.me/wp-content/uploads/2015/04/MS1001.jpg";
+	//this is trouser image
+//	private static String image = "http://content.backcountry.com/images/items/medium/ARC/ARC00G7/ANGGRE.jpg";
+	//this is high heel image
+//	private static String image = "http://cdn1.bigcommerce.com/n-ww20x/z3fel/products/82/images/275/adore_708UV_cnpn__13416.1385425358.1000.1200.jpg";
 	private static String collectionId = "cheok_collection_8da233";
 	
 	public String parameters = 
