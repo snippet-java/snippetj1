@@ -136,7 +136,7 @@ public class Snippet extends SuperGluev2 {
   		"<img src=\"" + Snippet.image + "\" style=\"width:100px;height:100px;\">\r\n" +
   		"<br>\r\n" +
   		"Output Similar Images\r\n" +
-  		"</td></tr><tr>\r\n";
+  		"</td></tr>\r\n";
 
   	int displaySize = 5;
   	String imagebody = "";
@@ -145,11 +145,11 @@ public class Snippet extends SuperGluev2 {
   		JsonObject similarImage = similarImageArray.get(i).getAsJsonObject();
   		JsonObject metaData = similarImage.get("metadata").getAsJsonObject();
   		imagebody += 
-  			"<td>\r\n" +
-			"<img src=\"" + metaData.get("url").getAsString() + "\" style=\"width:80px;height:80px;\">\r\n" +
-			"<br>\r\n" +
-			similarImage.get("score").getAsNumber() + "\r\n" +
-			"</td>\r\n";
+  			"<tr><td>\r\n" +
+				"<img src=\"" + metaData.get("url").getAsString() + "\" style=\"width:80px;height:80px;\">\r\n" +
+				"<br>\r\n" +
+				similarImage.get("score").getAsNumber() + "\r\n" +
+				"</td></tr>\r\n";
   	}
   	
   	html += imagebody + "</tr></table></body></html>";
@@ -157,7 +157,7 @@ public class Snippet extends SuperGluev2 {
     System.out.println(html);           
     try {
 			File file = new File(System.getProperty("user.dir") + File.separator + 
-					"public" + File.separator + "snippets" + File.separator + "java" + File.separator +
+//					"public" + File.separator + "snippets" + File.separator + "java" + File.separator +
 					"ImageProcessing" + File.separator + "02SearchSimilarImage" + File.separator + "output.html");
 			FileWriter fileWriter = new FileWriter(file);
 			fileWriter.write(html);
