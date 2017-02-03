@@ -15,7 +15,7 @@ public class Snippet{
       }
       currentNum++;
     }
-    System.out.println("The sum of numbers that are multiples of 3 and 5 under "
-    +maxNum+" is "+sum);
+    System.out.println("The sum of numbers that"
+    +" are multiples of 3 and 5 under "+maxNum+" is "+sum);
     }
 }

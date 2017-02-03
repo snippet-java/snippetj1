@@ -5,7 +5,7 @@ public class Snippet{
     System.out.println(isEven(10));
   }
   
-  //Function to check if the provided number is even or not
+  //Function to check if the number is even or not
   public static boolean isEven(int num) {    
     if(num%2 == 0) {
       return true;

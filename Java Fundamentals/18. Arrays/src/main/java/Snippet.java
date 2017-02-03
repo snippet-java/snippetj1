@@ -8,7 +8,7 @@ public class Snippet{
     studentNames[1] = "Linda";
     studentNames[2] = "Joe";
     //Iterate over the array
-    for(int i = 0 ; i < studentNames.length ; i++) {
+    for(int i = 0 ; i < studentNames.length ; i++){
       System.out.println(studentNames[i]);
     }    
   }

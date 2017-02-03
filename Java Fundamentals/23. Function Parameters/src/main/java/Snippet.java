@@ -8,6 +8,7 @@ public class Snippet{
   //'studentMarks' function accepts three parameters 
   public static void studentMarks(String studentName , int marks, String course) {
      //All the three parameters are used in this print statement.
-    System.out.println( studentName + " got "+marks+" in "+course);
+    System.out.println( studentName + " got " 
+                       +marks+" in "+course);
   }
 }

@@ -19,22 +19,27 @@ public class Snippet{
     }
     
     System.out.println("***Copying source array to destination array***");
-    System.out.println("Source array is :"+Arrays.toString(source));
+    System.out.println("Source array is :"
+                       +Arrays.toString(source));
 
     //copy to destination array
     int[] destination = Arrays.copyOf(source, source.length);
-    System.out.println("destination array is :"+Arrays.toString(destination));
+    System.out.println("destination array is :"
+                        +Arrays.toString(destination));
     
     //copy to destinationTrimmed array , but only first 5 elements
     int[] destinationTrimmed = Arrays.copyOf(source, 5);
-    System.out.println("destinationTrimmed array after copying 5 elements :"+Arrays.toString(destinationTrimmed));
+    System.out.println("destinationTrimmed array after copying 5 elements :"
+                        +Arrays.toString(destinationTrimmed));
       
     //Convert to String an print it
-    System.out.println("Original Array is: "+Arrays.toString(ints));
+    System.out.println("Original Array is: "
+                        +Arrays.toString(ints));
     //Sort the elements of array
     java.util.Arrays.sort(ints);
     System.out.println("***Sorting array elements***");
     //Convert the sorted array to String an print it
-    System.out.println("Sorted Array is: "+Arrays.toString(ints));
+    System.out.println("Sorted Array is: "
+                        +Arrays.toString(ints));
     }
 }

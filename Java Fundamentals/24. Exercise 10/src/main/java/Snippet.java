@@ -13,7 +13,8 @@ public class Snippet{
     studentsWithGrade[2][0] = "Sam";
     studentsWithGrade[2][1] = "B";  
     
-    System.out.println("Number of students with grade 'A' are : " +findNoOfAGrades(studentsWithGrade));
+    System.out.println("Number of students with grade 'A' are : " 
+                      +findNoOfAGrades(studentsWithGrade));
   }
   
   public static int findNoOfAGrades(String[][] studentsWithGrade) {

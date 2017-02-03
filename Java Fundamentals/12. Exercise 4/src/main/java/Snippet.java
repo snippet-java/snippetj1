@@ -5,11 +5,14 @@ public class Snippet{
     int num2 = 15;
 
     if(____ > ____) { 
-      System.out.println("The larger of "+ num1+ " and "+ num2+ " is "+ num1+ ".");
+      System.out.println("The larger of "+ num1
+                        +" and "+ num2+ " is "+ num1+ ".");
     } else if(____ > ____) {
-      System.out.println("The larger of "+ num1+" and "+ num2+ " is "+ num2+ ".");
+      System.out.println("The larger of "+ num1
+                        +" and "+ num2+ " is "+ num2+ ".");
     } else {
-      System.out.println("The values "+ num1+ " and "+num2+ " are equal.");
+      System.out.println("The values "+ num1
+                        +" and "+num2+ " are equal.");
     }
   }
 }
