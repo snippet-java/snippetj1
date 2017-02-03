@@ -19,7 +19,6 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -31,18 +30,18 @@ public class Snippet extends SuperGluev2 {
 	private static String collectionId = "cheok_collection_8da233";
 	
 	public String parameters = 
-			"{\"apiKey\":\"" + credentialKey + "\","
-			+ "\"imageurl\":\"" + image + "\","
-			+ "\"collectionId\":\"" + collectionId + "\"}";
+		"{\"apiKey\":\"" + credentialKey + "\","
+		+ "\"imageurl\":\"" + image + "\","
+		+ "\"collectionId\":\"" + collectionId + "\"}";
 	
 	@Override
 	protected JsonObject process(String jsonString) {
 		JsonParser parser = new JsonParser(); 
 		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();  
 		
-	    System.out.println("Downloading picture.");
-	    File fileA = new File("test.jpg"); 
-	    URL url = null;
+    System.out.println("Downloading picture.");
+    File fileA = new File("test.jpg"); 
+    URL url = null;
 		try {
 			url = new URL(myBean.get("imageurl").getAsString());
 			URLConnection conn = url.openConnection();
@@ -51,17 +50,17 @@ public class Snippet extends SuperGluev2 {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}    
-	    System.out.println("picture downloaded.");
+	  System.out.println("picture downloaded.");
 		System.out.println("Processing picture...");
-	    String apiURL = 
-	    		"https://gateway-a.watsonplatform.net/visual-recognition/api/v3/collections/" 
-					+ myBean.get("collectionId").getAsString() 
-					+ "/find_similar?"
-					+ "api_key=" + myBean.get("apiKey").getAsString() 
-					+ "&version=2016-05-20";
-	    String result = makeHTTPPostCall(apiURL, fileA);
+    String apiURL = 
+  		"https://gateway-a.watsonplatform.net/visual-recognition/api/v3/collections/" 
+			+ myBean.get("collectionId").getAsString() 
+			+ "/find_similar?"
+			+ "api_key=" + myBean.get("apiKey").getAsString() 
+			+ "&version=2016-05-20";
+    String result = makeHTTPPostCall(apiURL, fileA);
 		
-        JsonObject json = parser.parse(result).getAsJsonObject();
+    JsonObject json = parser.parse(result).getAsJsonObject();
 		return json;
 	}
 	
@@ -85,88 +84,90 @@ public class Snippet extends SuperGluev2 {
 	 
 	 protected static String makeHTTPPostCall(String httpURL, File img) {
 	    	
-	    	HttpClient client = HttpClientBuilder.create().build();
-			
-	    	HttpPost post = new HttpPost(httpURL);
-
-			post.setEntity(
-					MultipartEntityBuilder.create()
-					.addBinaryBody("image_file", img)
-					.build());
-
-			HttpResponse resp;
-			String result = "";
-			try {
-				resp = client.execute(post);
-				BufferedReader rd = new BufferedReader(
-				        new InputStreamReader(resp.getEntity().getContent()));
+		 HttpClient client = HttpClientBuilder.create().build();
 	
-				String line = "";
-				while ((line = rd.readLine()) != null) {
-					result += line;
-				}
-			} catch (ClientProtocolException e) {
-				System.err.println(e.getMessage());
-			} catch (IOException e) {
-				System.err.println(e.getMessage());
-			} 
-			return result;
+		 HttpPost post = new HttpPost(httpURL);
+	
+		 post.setEntity(
+			 MultipartEntityBuilder.create()
+			 .addBinaryBody("image_file", img)
+			 .build());
+	
+		 HttpResponse resp;
+		 String result = "";
+		 try {
+			 resp = client.execute(post);
+			 BufferedReader rd = new BufferedReader(
+			   new InputStreamReader(resp.getEntity().getContent()));
+	
+		 String line = "";
+		 while ((line = rd.readLine()) != null) {
+				result += line;
+		 }
+		 } catch (ClientProtocolException e) {
+			 	 System.err.println(e.getMessage());
+		 } catch (IOException e) {
+			   System.err.println(e.getMessage());
+		 } 
+		return result;
 	  }
 	
 
-	    public static void generateHTML(JsonObject json) {
-	      
-	    	JsonArray similarImageArray = json.get("similar_images").getAsJsonArray();
-	    	
-	    	String html = "";
-	    	
-	    	//header
-	    	html += 
-        		"<!DOCTYPE html>\r\n" + 
-        		"<html lang=\"en\">\r\n" + 
-        		"<head>\r\n" + 
-        		"    <meta charset=\"UTF-8\">\r\n" + 
-        		"    <title>Search Similar Image</title>\r\n" + 
-        		"</head>\r\n" + 
-        		"<body>\r\n";
-	    	
-	    	//Original image
-	    	html += 
-	    		"<table><tr><td>\r\n" + 
-	    		"<img src=\"" + Snippet.image + "\" style=\"width:100px;height:100px;\">\r\n" +
-	    		"<br>\r\n" +
-	    		"Input Image\r\n" +
-	    		"</td></tr><tr>\r\n";
+  public static void generateHTML(JsonObject json) {
+      
+  	JsonArray similarImageArray = json.get("similar_images").getAsJsonArray();
+  	
+  	String html = "";
+  	
+  	//header
+  	html += 
+  		"<!DOCTYPE html>\r\n" + 
+  		"<html lang=\"en\">\r\n" + 
+  		"<head>\r\n" + 
+  		"    <meta charset=\"UTF-8\">\r\n" + 
+  		"    <title>Search Similar Image</title>\r\n" + 
+  		"</head>\r\n" + 
+  		"<body>\r\n";
+  	
+  	//Original image
+  	html += 
+  		"<table><tr><td colspan=2>Input Image\r\n" +
+  		"<br>\r\n" +
+  		"<img src=\"" + Snippet.image + "\" style=\"width:100px;height:100px;\">\r\n" +
+  		"<br>\r\n" +
+  		"Output Similar Images\r\n" +
+  		"</td></tr><tr>\r\n";
 
-	    	String imagebody = "";
-	    	//to list out only 3 similar images
-	    	for(int i=0; (i < similarImageArray.size() && i < 3); i++ ) {
-	    		JsonObject similarImage = similarImageArray.get(i).getAsJsonObject();
-	    		JsonObject metaData = similarImage.get("metadata").getAsJsonObject();
-	    		imagebody += 
-	    			"<td>\r\n" +
-					"<img src=\"" + metaData.get("url").getAsString() + "\" style=\"width:80px;height:80px;\">\r\n" +
-					"<br>\r\n" +
-					similarImage.get("score").getAsNumber() + "\r\n" +
-					"</td>\r\n";
-	    	}
-	    	
-	    	html += imagebody + "</tr></table></body></html>";
-	    	     
-	        System.out.println(html);           
-	        try {
-				File file = new File(System.getProperty("user.dir") + File.separator + 
-						"public" + File.separator + "snippets" + File.separator + "java" + File.separator +
-						"ImageProcessing" + File.separator + "02SearchSimilarImage" + File.separator + "output.html");
-				FileWriter fileWriter = new FileWriter(file);
-				fileWriter.write(html);
-				fileWriter.flush();
-				fileWriter.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-	       
-	    }	
+  	int displaySize = 5;
+  	String imagebody = "";
+  	//to list out specified number of similar images
+  	for(int i=0; (i < similarImageArray.size() && i < displaySize); i++ ) {
+  		JsonObject similarImage = similarImageArray.get(i).getAsJsonObject();
+  		JsonObject metaData = similarImage.get("metadata").getAsJsonObject();
+  		imagebody += 
+  			"<td>\r\n" +
+			"<img src=\"" + metaData.get("url").getAsString() + "\" style=\"width:80px;height:80px;\">\r\n" +
+			"<br>\r\n" +
+			similarImage.get("score").getAsNumber() + "\r\n" +
+			"</td>\r\n";
+  	}
+  	
+  	html += imagebody + "</tr></table></body></html>";
+    	     
+    System.out.println(html);           
+    try {
+			File file = new File(System.getProperty("user.dir") + File.separator + 
+					"public" + File.separator + "snippets" + File.separator + "java" + File.separator +
+					"ImageProcessing" + File.separator + "02SearchSimilarImage" + File.separator + "output.html");
+			FileWriter fileWriter = new FileWriter(file);
+			fileWriter.write(html);
+			fileWriter.flush();
+			fileWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+       
+  }	
 	 
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 }
