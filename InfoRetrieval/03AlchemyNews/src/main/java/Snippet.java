@@ -24,13 +24,14 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-
-//After deployment go to the relative URI to test the functionality.
-//You would see a form to provide the input values.
 @WebServlet("/")
 public class Snippet extends SuperGluev2 {
 
-	public String parameters = "{\"apiKey\":\"8bea72d282329f66b671f37e49e164a6ab51c2b3\"}";
+	private String companyName = "IBM";
+	private String alchemyApi = "8bea72d282329f66b671f37e49e164a6ab51c2b3";
+	
+	public String parameters = "{\"apiKey\":\"" + alchemyApi + "\","
+			+ "\"companyName\":\"" + companyName + "\"}";
 	
 	@Override
 	protected JsonObject process(String jsonString) {
@@ -45,11 +46,13 @@ public class Snippet extends SuperGluev2 {
 		String[] fields = new String[] { "enriched.url.title", "enriched.url.url", "enriched.url.author",
 				"enriched.url.publicationDate", "enriched.url.enrichedTitle.entities",
 				"enriched.url.enrichedTitle.docSentiment" };
+		params.put("q.enriched.url.enrichedTitle.relations.relation", 
+				"|object.entities.entity.text=" + myBean.get("companyName").getAsString() + ",object.entities.entity.type=Company|");
 		params.put(AlchemyDataNews.RETURN, StringUtils.join(fields, ","));
 		// the time (in UTC seconds) of the beginning of the query duration
-		params.put(AlchemyDataNews.START, "1440720000");
+		params.put(AlchemyDataNews.START, "now-7d");
 		// the time (in UTC seconds) of the end of the query duration
-		params.put(AlchemyDataNews.END, "1441407600");
+		params.put(AlchemyDataNews.END, "now");
 		// return how many articles
 		params.put(AlchemyDataNews.COUNT, 7);
 		DocumentsResult result = service.getNewsDocuments(params).execute();
@@ -68,7 +71,7 @@ public class Snippet extends SuperGluev2 {
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		System.out.println(gson.toJson(processResult));
-       generateHTML();
+        generateHTML();
 	}
 
 	@Override
@@ -150,9 +153,11 @@ public class Snippet extends SuperGluev2 {
         html += htmlFooter;        
         System.out.println(html);           
         try {
-			File file = new File("output.html");
+			File file = new File(System.getProperty("user.dir") + File.separator + 
+					"public" + File.separator + "snippets" + File.separator + "java" + File.separator +
+					"InfoRetrieval" + File.separator + "03AlchemyNews" + File.separator + "output.html");
 			FileWriter fileWriter = new FileWriter(file);
-			fileWriter.write(html);
+			fileWriter.write("test123");
 			fileWriter.flush();
 			fileWriter.close();
 		} catch (IOException e) {
