@@ -71,7 +71,7 @@ public class Snippet extends SuperGluev2 {
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		System.out.println(gson.toJson(processResult));
-        generateHTML();
+        generateHTML(processResult);
 	}
 
 	@Override
@@ -79,12 +79,8 @@ public class Snippet extends SuperGluev2 {
 		return new JsonParser().parse(parameters).getAsJsonObject();
 	}
   
-    public static void generateHTML() {
-      	Snippet myclass = new Snippet();
-		JsonObject json = myclass.process(myclass.parameters);
-      
-    	//JsonObject json = parser.parse(fileString).getAsJsonObject();
-        
+    public static void generateHTML(JsonObject json) {
+    	
         JsonArray docsArray = json.get("result").getAsJsonObject().get("docs").getAsJsonArray();
         //System.out.println(docsArray);
         
