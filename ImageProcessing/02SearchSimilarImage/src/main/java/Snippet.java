@@ -157,7 +157,7 @@ public class Snippet extends SuperGluev2 {
     System.out.println(html);           
     try {
 			File file = new File(System.getProperty("user.dir") + File.separator + 
-//					"public" + File.separator + "snippets" + File.separator + "java" + File.separator +
+					"public" + File.separator + "snippets" + File.separator + "java" + File.separator +
 					"ImageProcessing" + File.separator + "02SearchSimilarImage" + File.separator + "output.html");
 			FileWriter fileWriter = new FileWriter(file);
 			fileWriter.write(html);
