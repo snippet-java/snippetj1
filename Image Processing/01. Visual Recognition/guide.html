@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Visual Recognition</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+<style>
+.panel-body {
+    font-size: 14px;
+}
+
+ol,ul{
+    padding-left: 20px;
+    margin:0px;   
+    padding-bottom:10px;
+}
+
+li{
+    padding-top:3px;
+    padding-bottom:3px;
+}
+
+</style>
+</head>
+
+
+<body style="font-family: Monospace;">
+    <div class="easyui-accordion">
+        <div title="About" data-options="collapsed:false" style="overflow:auto;padding:10px;">
+            
+            <img src="https://bluecloudnews.com/wp-content/uploads/2016/09/visual-recog2.jpg" alt="" width="100%" height="150" class="alignnone size-full wp-image-3179" />
+			<br>
+			<strong>How it Works</strong>
+			<br>
+			Visual Recognition understands the contents of images - it's learned over 20,000 visual concepts including faces, age and gender. You can also train the service by creating your own custom concepts. Use Visual Recognition to detect a dress type in retail, identify spoiled fruit in inventory, and more.
+			<br><br>
+			<strong>Intended use</strong>
+			<br>
+			Need to figure out what is contained in many images, but don’t have the man-power to manually go one-by-one? 
+			<ul>
+				<li>Organize image libraries into categories</li>
+			    <li>Segment user interests from social media pictures</li>
+			    <li>Find great images with specific content faster</li>
+			    <li>Recognize custom content from images</li>
+			    <li>Identify matching images</li>
+			</ul>
+			<strong>Your Input</strong>
+			<ul>
+			  <li>JPEG images</li>
+			  <li>PNG images</li>
+			  <li>Image or website URLs</li>
+			  <li>Custom: Classifier name, JPEG images (positive examples for each class, and negative examples)</li>
+			  <li>Custom: Collections - your own images that you want to search for similar images</li>
+			</ul>
+			<strong>Service Output</strong>
+			<ul>
+			  <li>Class description</li>
+			  <li>Class taxonomy</li>
+			  <li>Face detection (Gender, age range, celebrity (very limited see docs))</li>
+			  <li>Similar images with confidence scores</li>
+			</ul>
+        </div>
+        <div title="Code Walkthrough" data-options="collapsed:false" style="padding:10px;">
+            <p>Apikey need to be obtained by creating Visual Recognition at :<a target="_blank" href="https://console.ng.bluemix.net/catalog/services/visual-recognition/">Visual Recognition Service</a></p>
+            
+            <ol>
+                <li>When you run the code the apikey is expected to be set for the Visual Recognition API Service to be used.</li>
+                <li>Other Parameters: ImageURL, Collection ID</li>
+                <li>In this sample, it reads image from given link, and return similar image with confidence level</li> 
+            </ol>
+        </div>
+        <div title="Video and Documentation" data-options="" style="padding:10px;">
+            
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/n3_oGnXkMAE" frameborder="0" allowfullscreen></iframe>
+
+            
+            <p>For documentation visit <a target="_blank" href="http://www.ibm.com/watson/developercloud/visual-recognition.html">Visual Recognition Documentation</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

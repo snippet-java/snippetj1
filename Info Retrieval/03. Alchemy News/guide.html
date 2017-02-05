@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Alchemy Data News Documentation</title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon.css">
+    <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
+    <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+<style>
+.panel-body {
+    font-size: 14px;
+}
+
+
+ol,ul{
+    padding-left: 20px;
+    margin:0px;   
+    padding-bottom:10px;
+}
+
+li{
+    padding-top:3px;
+    padding-bottom:3px;
+}
+
+</style>
+</head>
+
+
+<body style="font-family: Monospace;">
+    <div class="easyui-accordion">
+        <div title="About" data-options="collapsed:false" style="overflow:auto;padding:10px;">
+            
+            <img src="http://bluecloudnews.com/wp-content/uploads/2016/09/alchemy-data-news2.jpg" alt="alchemy-data-news" width="100%" height="150" class="alignnone size-full wp-image-490" />
+			<br>
+			<strong>How it Works</strong>
+			<br>
+			AlchemyData News indexes 250k to 300k English language news and blog articles every day with historical search available for the past 60 days. You can query the News API directly with no need to acquire, enrich and store the data yourself - enabling you to go beyond simple keyword-based searches.
+			<br><br>
+			<strong>Intended use</strong>
+			<br>
+			Highly targeted search, time series and counts for trend analysis and pattern mapping, and historical access to news and blog content.
+			<br>
+			<strong>Your Input</strong>
+			<ul>
+			  <li>Build a query with natural language processing to search both the text in indexed content and the concepts that are associated with it.</li>
+			</ul>
+			<strong>Service Output</strong>
+			<ul>
+			  <li>News and blog content enriched with our full suite of NLP services.</li>
+			  <li>Keywords, Entities, Concepts, Relations, Sentiment, Taxonomy</li>
+			</ul>
+        </div>
+        <div title="Code Walkthrough" data-options="collapsed:false" style="padding:10px;">
+            <p>API Key need to be obtained by creating Alchemy Data News Service at :<a target="_blank" href="https://console.ng.bluemix.net/catalog/services/alchemyapi/">Alchemy API Service</a></p>
+            
+            <ol>
+                <li>When you run the code the API Key is expected to be set for the Alchemy API Service to be used.</li>
+                <li>In the process mehod , the following steps occur.</li>
+                <ul>
+                    <li>We set the information like URL,Author etc to be retrived back</li>
+                    <li>We set the newsStart time and end time.</li>
+                </ul>    
+            </ol>
+        </div>
+        <div title="Video and Documentation" data-options="" style="padding:10px;">
+            
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/I6RH7wSIvcs" frameborder="0" allowfullscreen></iframe>
+
+            
+            <p>For documentation visit <a target="_blank" href="https://www.ibm.com/watson/developercloud/alchemy-data-news.html">Alchemy Data News Documentation</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
