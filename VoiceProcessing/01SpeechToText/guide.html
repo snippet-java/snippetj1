@@ -13,12 +13,31 @@
     <link rel="stylesheet" type="text/css" href="/js/themes/ribbon-icon.css">
     <script type="text/javascript" src="/js/jquery.ribbon.js"></script>
     <script type="text/javascript" src="/js/index.js"></script>
+<style>
+.panel-body {
+    font-size: 14px;
+}
+
+
+ol,ul{
+    padding-left: 20px;
+    margin:0px;   
+    padding-bottom:10px;
+}
+
+li{
+    padding-top:3px;
+    padding-bottom:3px;
+}
+
+</style>
 </head>
 
-<body>
+
+<body style="font-family: Monospace;">
     <div class="easyui-accordion">
-        <div title="About" data-options="iconCls:'icon-ok',collapsed:false" style="overflow:auto;padding:10px;">
-            <h3 style="color:#0099FF;">About</h3>
+        <div title="About" data-options="collapsed:false" style="overflow:auto;padding:10px;">
+            
             <img src="https://bluecloudnews.com/wp-content/uploads/2016/09/speech-to-text2.jpg" alt="" width="100%" height="150" class="alignnone size-full wp-image-3174" />
 			<br>
 			<strong>How it Works</strong>
@@ -45,19 +64,19 @@
 			  <li>Text transcriptions of the audio with recognized words</li>
 			</ul>
         </div>
-        <div title="Code Walkthrough" data-options="iconCls:'icon-help',collapsed:false" style="padding:10px;">
+        <div title="Code Walkthrough" data-options="collapsed:false" style="padding:10px;">
             <p>Credentials can be obtained by creating Speech To Text Service at :<a target="_blank" href="https://console.ng.bluemix.net/catalog/services/speech-to-text/">Speech To Text Service</a></p>
-            <h3 style="color:#0099FF;">Code Walkthrough</h3>
+            
             <ol>
                 <li>When you run the code the user name and password is expected to be set for the Speech To Text API Service to be used.</li>
                 <li>It recognize the audio files stored in Resources folder and convert to text in json format</li>
             </ol>
         </div>
-        <div title="Video and Documentation" data-options="iconCls:'icon-help'" style="padding:10px;">
-            <h3 style="color:#0099FF;">Video</h3>
+        <div title="Video and Documentation" data-options="" style="padding:10px;">
+            
             <iframe width="560" height="315" src="https://www.youtube.com/embed/JWnLgZ58zsw" frameborder="0" allowfullscreen></iframe>
 
-            <h3 style="color:#0099FF;">Documentation</h3>
+            
             <p>For documentation visit <a target="_blank" href="https://www.ibm.com/watson/developercloud/speech-to-text.html">Speech To Text Documentation</a>
             </p>
         </div>
