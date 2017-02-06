@@ -34,9 +34,9 @@ public class Snippet extends SuperGluev2 {
 				"enriched.url.enrichedTitle.docSentiment" };
 		params.put(AlchemyDataNews.RETURN, StringUtils.join(fields, ","));
 		// the time (in UTC seconds) of the beginning of the query duration
-		params.put(AlchemyDataNews.START, "1440720000");
+		params.put(AlchemyDataNews.START, "now-7d");
 		// the time (in UTC seconds) of the end of the query duration
-		params.put(AlchemyDataNews.END, "1441407600");
+		params.put(AlchemyDataNews.END, "now");
 		// return how many articles
 		params.put(AlchemyDataNews.COUNT, 7);
 		DocumentsResult result = service.getNewsDocuments(params).execute();
