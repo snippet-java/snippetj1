@@ -29,8 +29,14 @@
 }
 
 ol,ul{
-     padding-left: 20px;
+    padding-left: 20px;
     margin:0px;   
+    padding-bottom:10px;
+}
+
+li{
+    padding-top:3px;
+    padding-bottom:3px;
 }
 
 
@@ -46,8 +52,14 @@ src: url(/assets/fonts/ibm/HelveticaNeueLTStd-Lt.otf);
 }
 
 ol,ul{
-     padding-left: 20px;
+    padding-left: 20px;
     margin:0px;   
+    padding-bottom:10px;
+}
+
+li{
+    padding-top:3px;
+    padding-bottom:3px;
 }
 
 
@@ -64,10 +76,10 @@ src: url(/assets/fonts/ibm/HelveticaNeueLTStd-Lt.otf);
         <div title="Code Walkthrough" data-options="collapsed:false" style="overflow:auto;padding:10px;">
             Converting celsius to Fahrenheit using the operators. 
             <ol>
-                <li>To convert temperatures in degrees Celsius to Fahrenheit, multiply  by 1.8 (or 9/5) and add 32.</li><br>   
-                <li>To convert temperatures in degrees Fahrenheit to Celsius, subtract 32 and multiply by .5556 (or 5/9).</li><br>
-                <li>Convert back to celsius to validate the answer.</li><br>
-                <li>Print temperature in Fahrenheit and Celsius.</li><br>
+                <li>To convert temperatures in degrees Celsius to Fahrenheit, multiply  by 1.8 (or 9/5) and add 32.</li>   
+                <li>To convert temperatures in degrees Fahrenheit to Celsius, subtract 32 and multiply by .5556 (or 5/9).</li>
+                <li>Convert back to celsius to validate the answer.</li>
+                <li>Print temperature in Fahrenheit and Celsius.</li>
             </ol>
         </div>
     </div>
@@ -151,19 +163,19 @@ depends on the rules of precedence.
 Multiplication and division happen before addition and subtraction.
 So 2*3-1 yields 5, not 4, and 2/3-1 yields -1, not 1 (remember that in
 integer division 2/3 is 0).
-</li><br>
+</li>
 <li>
 If the operators have the same precedence they are evaluated from left
 to right. So in the expression <code>minute*100/60</code>, the multiplication happens
 first.
-</li><br>
+</li>
 <li>
 Any time you want to override the rules of precedence (or you are not
 sure what they are) you can use parentheses. Expressions in parentheses
 are evaluated first, so 2 *(3-1) is 4. You can also use parentheses
 to make an expression easier to read, as in <code>(minute * 100) / 60</code>, even
 though it doesn’t change the result
-</li><br>
+</li>
 </ul>
 </br>
         </div>
