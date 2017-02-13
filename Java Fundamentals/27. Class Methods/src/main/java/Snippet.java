@@ -1,4 +1,4 @@
-public class Snippet{ 
+public class Student{ 
   //Instance variables
   String firstName;
   String lastName;
